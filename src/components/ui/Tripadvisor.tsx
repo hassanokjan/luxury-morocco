@@ -7,17 +7,17 @@ const tripadvisorLink = "https://www.tripadvisor.com/Attraction_Review-g304018-d
 const reviews = [
   {
     name: "Krasito",
-    comment:"This was my first time in Morocco and Zaid and Hassan made it amazing. They chose great places to stay, restaurants with very tasty food, and cared for us very well. When I come back to Morocco, I will definitely use their services again!",
+    comment:
+      "This was my first time in Morocco and Zaid and Hassan made it amazing. They chose great places to stay, restaurants with very tasty food, and cared for us very well. When I come back to Morocco, I will definitely use their services again!",
   },
   {
     name: "Boiana S",
-    comment:
-      "It was an incredible journey, and throughout the entire trip we felt truly supported and cared for by our guides, Zaid and Hassan. They were exceptionally attentive, warm, smiling, and genuinely caring at every moment.",
+    comment: "I had an amazing experience with this travel agency on my trip to Morocco! Everything was perfectly organized, from the accommodations to the guided tours. The team was friendly, professional, and always available to help, which made the whole journey stress-free. Morocco itself was beautiful, and thanks to their planning, I got to experience so much of the culture and scenery. I’d definitely recommend them to anyone looking for a memorable and well-organized trip!.",
   },
   {
-    name: "Iveta N",
+    name: "Getaway",
     comment:
-      "Zaid and Hassan were absolutely incredible guides — warm, professional, and always attentive. They made our stay in Morocco truly unforgettable, and every moment with them was enjoyable and authentic.",
+      "We had an incredible experience on our tour, thanks entirely to our guide Hassan. He was a fantastic driver, extremely knowledgeable about the area, and super friendly throughout the trip. His excellent English made communication effortless, and he shared fascinating insights that truly enriched our experience. The trip would not have been the same without him — we couldn’t recommend him more highly!.",
   },
 ];
 
@@ -92,7 +92,7 @@ export default function Tripadvisor({locale}: {locale: string}): React.JSX.Eleme
                 ))}
               </div>
 
-              <p className="text-sm leading-7 text-text-secondary sm:text-base">
+              <p className="text-sm line-clamp-6  leading-7 text-text-secondary sm:text-base">
                 “{review.comment}”
               </p>
 

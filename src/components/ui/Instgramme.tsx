@@ -42,7 +42,7 @@ export default async function InstagramSection(): Promise<React.JSX.Element> {
   return (
     <section className="bg-background px-4 text-center sm:px-6 lg:px-8">
       <div className="mx-auto max-w-6xl">
-        <h2 className="mt-3 text-4xl font-extrabold tracking-tight text-heading sm:text-4xl">
+        <h2 className="mt-3 text-4xl font-extrabold tracking-tight text-primary sm:text-4xl">
           Follow Our Journey
         </h2>
 
