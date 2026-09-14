@@ -24,7 +24,7 @@ const nextConfig: NextConfig = {
             value: "www.luxurymoroccodestinations.com",
           },
         ],
-        destination: "https://toursmarrakechdesert.com/:path*",
+        destination: "https://luxurymoroccodestinations.com/:path*",
         permanent: true, // 301
       },
     ];
