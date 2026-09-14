@@ -1,0 +1,162 @@
+{
+  "Hero": {
+    "imageAlt": "Experiencia de viaje de lujo por Marruecos en Marrakech",
+    "title": "Luxury Morocco",
+    "titleHighlight": " Destinations",
+    "subtitle": "Viajes de lujo por Marruecos y destinos de viaje en Marruecos",
+    "description": "Luxury Morocco Destinations crea viajes privados de lujo por Marruecos y viajes a medida por los destinos más destacados del país, desde Marrakech y Fez hasta el desierto del Sahara y las ciudades imperiales.",
+    "toursButton": "Viajes privados por Marruecos",
+    "quoteButton": "Solicita un presupuesto gratuito",
+    "tailorMade": "Itinerarios a medida",
+    "expertTours": "viajes con expertos en Marruecos"
+  },
+  "Header": {
+    "home": "Inicio",
+    "tours": "Circuitos",
+    "dayTrips": "Excursiones",
+    "activities": "Actividades",
+    "customTour": "Viaje a medida",
+    "blog": "Blog",
+    "about": "Sobre nosotros",
+    "contact": "Contacto",
+    "allTours": "Todos los circuitos",
+    "fromMarrakech": "Circuitos desde Marrakech",
+    "fromFes": "Circuitos desde Fez",
+    "fromCasablanca": "Circuitos desde Casablanca",
+    "fromTangier": "Circuitos desde Tánger",
+    "fromAgadir": "Circuitos desde Agadir",
+    "aboutCompany": "Sobre Tours Marrakech Desert",
+    "aboutMorocco": "Sobre Marruecos",
+    "favorites": "Favoritos",
+    "homeLabel": "Inicio de Tours Marrakech Desert",
+    "openMenu": "Abrir el menú de navegación",
+    "closeMenu": "Cerrar el menú de navegación",
+    "mainNavigation": "Navegación principal",
+    "mobileNavigation": "Navegación móvil",
+    "changeLanguage": "Cambiar de idioma"
+  },
+    "FAQ": {
+    "title": "Preguntas frecuentes",
+    "subtitle": "Respuestas útiles para organizar tours privados de lujo por Marruecos y viajes a medida por todo el país",
+    "items": [
+    {
+    "q": "¿Qué tipos de tours de lujo por Marruecos ofrece Luxury Morocco Destinations?",
+    "a": "Luxury Morocco Destinations organiza tours privados de lujo por Marruecos, itinerarios a medida, viajes al desierto del Sáhara, experiencias culturales y circuitos de varios días por algunos de los destinos más destacados del país. Los viajes pueden comenzar en Marrakech, Fez, Casablanca, Tánger, Agadir o Errachidia e incluir el desierto del Sáhara, las montañas del Atlas, las ciudades imperiales, la costa atlántica, pueblos tradicionales y antiguas kasbahs."
+    },
+    {
+    "q": "¿Pueden crear un itinerario privado y personalizado por Marruecos?",
+    "a": "Sí. Nuestros viajes por Marruecos pueden adaptarse a tus fechas, intereses, destinos preferidos, tipo de alojamiento y duración del viaje. Tanto si buscas una escapada romántica, un viaje en familia, un tour privado por el desierto, una ruta cultural o un circuito más largo por Marruecos, podemos combinar diferentes destinos y experiencias en un itinerario personalizado."
+    },
+    {
+    "q": "¿Qué destinos de Marruecos puedo incluir en mi viaje?",
+    "a": "Entre los destinos de viaje más populares de Marruecos se encuentran Marrakech, Fez, Casablanca, Rabat, Chefchaouen, Essaouira, Tánger, Ouarzazate, el valle del Dades, Merzouga, las dunas de Erg Chebbi y las montañas del Atlas. Los itinerarios más largos pueden combinar ciudades imperiales, el desierto del Sáhara, paisajes de montaña, pueblos costeros y pequeñas comunidades locales en un mismo viaje privado."
+    },
+    {
+    "q": "¿Qué hace especial una experiencia de lujo en el desierto del Sáhara en Marruecos?",
+    "a": "Una experiencia de lujo en el Sáhara combina los paisajes de las dunas de Merzouga con transporte privado, alojamientos cuidadosamente seleccionados, paseos en camello al atardecer, hospitalidad marroquí y una noche en un cómodo campamento en el desierto. Dependiendo del itinerario, el viaje también puede incluir el valle del Dades, las gargantas del Todra, Ouarzazate, kasbahs históricas y comunidades bereberes."
+    },
+    {
+    "q": "¿Cuántos días necesito para un tour de lujo por Marruecos?",
+    "a": "La duración ideal depende de las regiones que quieras visitar. Un itinerario de 3 a 5 días es adecuado para combinar Marrakech con el desierto del Sáhara, mientras que un viaje de 7 a 10 días permite añadir ciudades imperiales, valles y las montañas del Atlas. Para un tour de lujo por Marruecos más completo, incluyendo el norte del país y la costa atlántica, recomendamos entre 10 y 14 días para viajar a un ritmo más relajado."
+    },
+    {
+    "q": "¿Los tours de Luxury Morocco Destinations son adecuados para parejas, familias y pequeños grupos privados?",
+    "a": "Sí. Nuestros tours privados por Marruecos pueden adaptarse a parejas, lunas de miel, familias, grupos de amigos y pequeños grupos privados. El itinerario, el ritmo del viaje, los alojamientos, las actividades y el programa diario pueden ajustarse a cada tipo de viajero para ofrecer una experiencia por Marruecos más cómoda y personalizada."
+    }
+    ]
+    },
+  "CustomTour": {
+    "meta": {
+      "title": "Personaliza tu tour por Marruecos — tours de lujo por Marruecos | Luxury Morocco Destinations",
+      "description": "Diseña tu itinerario perfecto por Marruecos con nuestros expertos locales. Tours privados desde Marrakech, aventuras personalizadas por el Sáhara y viajes a medida adaptados a tu ritmo, intereses y presupuesto."
+    },
+    "hero": {
+      "eyebrow": "Viajes privados y a medida por Marruecos",
+      "title": "Tu viaje por Marruecos, diseñado a tu medida"
+    },
+    "intro": {
+      "eyebrow": "Hecho para ti",
+      "title": "Crea un tour privado por Marruecos que realmente se adapte a ti",
+      "description": "Elige los lugares que quieres visitar, las experiencias que más te interesan y el ritmo que mejor encaja con tu viaje. Pasa más tiempo en Marrakech, cruza las montañas del Atlas, duerme entre las dunas de Merzouga, recorre las calles de Fez o disfruta de una estancia más tranquila en la costa atlántica. Luxury Morocco Destinations transforma tus ideas en un viaje privado y totalmente personalizado por Marruecos, con alojamientos cuidadosamente seleccionados, experiencias locales y traslados cómodos entre cada destino.",
+      "cta": "Diseñar mi viaje por Marruecos"
+    },
+    "features": {
+      "guides": {
+        "title": "Guías locales expertos",
+        "description": "Nuestros guías locales ponen a tu disposición su amplio conocimiento de la cultura, la historia y los rincones menos conocidos de Marruecos para crear un viaje totalmente adaptado a tus intereses, desde los animados zocos de Marrakech hasta las tranquilas dunas del Sáhara."
+      },
+      "timing": {
+        "title": "El momento ideal para cada destino",
+        "description": "Te orientamos sobre las mejores épocas para visitar cada región, teniendo en cuenta el clima y la afluencia de viajeros. La primavera es perfecta para Fez y el Atlas, el otoño es ideal para el Sáhara y el invierno ofrece excelentes condiciones para disfrutar de la costa atlántica de Essaouira y Agadir."
+      },
+      "itinerary": {
+        "title": "Itinerarios a medida, sin compromisos",
+        "description": "Creamos itinerarios fluidos a partir de los lugares que quieres conocer, combinando destinos emblemáticos como Aït Ben Haddou y Merzouga con rincones especiales conocidos por nuestros expertos locales. Cada ruta se personaliza y cada parada tiene un propósito."
+      },
+      "booking": {
+        "title": "Proceso de reserva fácil y flexible",
+        "description": "Cuéntanos qué lugares quieres visitar, tus fechas preferidas y el tamaño de tu grupo, y nosotros nos ocuparemos de los detalles: transporte, alojamiento, guías y actividades. Puedes contactarnos por WhatsApp, correo electrónico o formulario y recibir tu itinerario personalizado en un plazo de 24 horas."
+      }
+    },
+    "promises": {
+      "title": "Lo que te garantizamos",
+      "items": {
+        "private": {
+          "title": "Tours 100 % privados",
+          "description": "Cada tour personalizado es exclusivamente para ti: vehículo privado, guía propio y horario adaptado a tu viaje. Sin compartir con desconocidos y sin paradas apresuradas de grupos organizados."
+        },
+        "flexible": {
+          "title": "Itinerarios totalmente flexibles",
+          "description": "¿Cambias de idea durante el viaje? No hay problema. ¿Quieres pasar una noche más en el desierto? Podemos adaptarlo. El itinerario se ajusta a ti, no al contrario."
+        },
+        "support": {
+          "title": "Asistencia durante el viaje 24/7",
+          "description": "Desde tu llegada a Marruecos hasta el último traslado al aeropuerto, nuestro equipo estará disponible a través de WhatsApp. Si necesitas ayuda durante el viaje, estaremos a tu disposición."
+        },
+        "local": {
+          "title": "Conocimiento local que no encontrarás en Google",
+          "description": "Nuestros guías de origen bereber conocen rutas alternativas, restaurantes familiares, miradores tranquilos y las historias que se esconden detrás de cada kasbah. Ese conocimiento local aporta una dimensión mucho más auténtica a cada viaje personalizado."
+        }
+      }
+    }
+  },
+  "Footer": {
+    "brand": {
+      "description": "Tours Marrakech Desert es un operador turístico local en Marruecos especializado en tours privados por el Sahara, excursiones de un día y viajes a medida desde Marrakech, Fez y más allá."
+    },
+    "tours": {
+      "title": "Tours Populares",
+      "marrakech": "Tours desde Marrakech",
+      "fes": "Tours desde Fez",
+      "casablanca": "Tours desde Casablanca",
+      "tangier": "Tours desde Tánger",
+      "agadir": "Tours desde Agadir",
+      "Errachidia": "Tours desde Errachidia"
+    },
+    "explore": {
+      "title": "Explorar",
+      "dayTrips": "Excursiones",
+      "tours": "Tours",
+      "activities": "Actividades",
+      "customTour": "Tour Personalizado",
+      "blog": "Blog"
+    },
+    "company": {
+      "title": "Empresa",
+      "about": "Sobre Nosotros",
+      "aboutMorocco": "Sobre Marruecos",
+      "contact": "Contacto",
+      "favorites": "Mis Favoritos"
+    },
+    "contact": {
+      "title": "Contáctanos",
+      "location": "Marrakech · Fez · Merzouga, Marruecos",
+      "payment": "Aceptamos"
+    },
+    "copyright": "Todos los derechos reservados.",
+    "legal": {
+      "privacy": "Política de Privacidad",
+      "terms": "Términos de Servicio"
+    }
+  }
+}

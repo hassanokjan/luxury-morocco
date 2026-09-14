@@ -1,0 +1,631 @@
+"use client";
+
+import { useEffect, useState, type ComponentProps } from "react";
+import { useLocale, useTranslations } from "next-intl";
+import { useParams } from "next/navigation";
+import { ChevronDown, Mail, Menu, Phone, X } from "lucide-react";
+import Image from "next/image";
+import { usePathname, Link } from "@/i18n/routing";
+import LanguageSwitcher from "../ui/LanguageSwitcher";
+
+type StaticHref = Extract<ComponentProps<typeof Link>["href"], string>;
+
+type DropdownItem = {
+  href:
+    | StaticHref
+    | {
+        pathname: "/tours/from/[city]";
+        params: { city: string };
+      };
+  label: string;
+};
+
+type NavLink = {
+  href: StaticHref;
+  label: string;
+  dropdown?: DropdownItem[];
+};
+
+const CONTACT = {
+  phone: "+212 6 15683217",
+  phoneHref: "tel:+212615683217",
+  email: "info@toursmarrakechdesert.com",
+  emailHref: "mailto:info@toursmarrakechdesert.com",
+};
+
+const TOURS_DROPDOWN: DropdownItem[] = [
+  {
+    href: {
+      pathname: "/tours/from/[city]",
+      params: { city: "marrakech" },
+    },
+    label: "fromMarrakech",
+  },
+  {
+    href: {
+      pathname: "/tours/from/[city]",
+      params: { city: "fes" },
+    },
+    label: "fromFes",
+  },
+  {
+    href: {
+      pathname: "/tours/from/[city]",
+      params: { city: "casablanca" },
+    },
+    label: "fromCasablanca",
+  },
+  {
+    href: {
+      pathname: "/tours/from/[city]",
+      params: { city: "tangier" },
+    },
+    label: "fromTangier",
+  },
+  {
+    href: {
+      pathname: "/tours/from/[city]",
+      params: { city: "agadir" },
+    },
+    label: "fromAgadir",
+  },
+  {
+    href: {
+      pathname: "/tours/from/[city]",
+      params: { city: "Errachidia" },
+    },
+    label: "fromErrachidia",
+  },
+  {
+    href: "/tours",
+    label: "allTours",
+  },
+];
+
+const ABOUT_DROPDOWN: DropdownItem[] = [
+  {
+    href: "/about",
+    label: "aboutCompany",
+  },
+  {
+    href: "/about/morocco_tourist",
+    label: "aboutMorocco",
+  },
+];
+
+const NAV_LINKS: NavLink[] = [
+  {
+    href: "/",
+    label: "home",
+  },
+  {
+    href: "/tours",
+    label: "tours",
+    dropdown: TOURS_DROPDOWN,
+  },
+  {
+    href: "/day-trips",
+    label: "dayTrips",
+  },
+  {
+    href: "/customize-your-tour",
+    label: "customTour",
+  },
+  {
+    href: "/blog",
+    label: "blog",
+  },
+  {
+    href: "/about",
+    label: "about",
+    dropdown: ABOUT_DROPDOWN,
+  },
+  {
+    href: "/contact",
+    label: "contact",
+  },
+];
+
+function isLinkActive(pathname: string, href: string): boolean {
+  return pathname === href || (href !== "/" && pathname.startsWith(`${href}/`));
+}
+
+function isDropdownActive(
+  pathname: string,
+  href: DropdownItem["href"],
+  city: string | string[] | undefined,
+): boolean {
+  return typeof href === "string"
+    ? pathname === href
+    : pathname === href.pathname && city === href.params.city;
+}
+
+export default function Header(): React.JSX.Element {
+  const pathname = usePathname();
+  const locale = useLocale();
+  const params = useParams();
+
+  const navigationKey = JSON.stringify([locale, pathname, params]);
+
+  return <HeaderContent key={navigationKey} pathname={pathname} />;
+}
+
+function HeaderContent({ pathname }: { pathname: string }): React.JSX.Element {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const closeMobileMenu = (): void => {
+    setIsOpen(false);
+  };
+
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "";
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
+  const isSolid = isOpen;
+
+  return (
+    <>
+      <header className="sticky top-0 z-[100] w-full">
+        <div
+          className={`transition-all duration-300 ${
+            isSolid
+              ? "border-b border-border bg-background/98 shadow-sm backdrop-blur-xl"
+              : "border-b border-border/70 bg-background/95 backdrop-blur-xl"
+          }`}
+        >
+          <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-6 px-4 sm:px-6 lg:h-20 lg:px-8">
+            <Logo onClick={closeMobileMenu} />
+
+            <DesktopNav pathname={pathname} />
+
+            <div className="hidden items-center lg:flex">
+              <LanguageSwitcher />
+            </div>
+
+            <MobileMenuButton
+              isOpen={isOpen}
+              onToggle={() => setIsOpen((current) => !current)}
+            />
+          </div>
+        </div>
+
+        {isOpen && (
+          <MobileNav pathname={pathname} onCloseMobileMenu={closeMobileMenu} />
+        )}
+      </header>
+    </>
+  );
+}
+
+function Logo({ onClick }: { onClick?: () => void }): React.JSX.Element {
+  const t = useTranslations("Header");
+
+  return (
+    <Link
+      href="/"
+      onClick={onClick}
+      className="flex shrink-0 items-center rounded-lg text-heading transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+      aria-label={t("homeLabel")}
+    >
+      <Image
+        width={48}
+        height={48}
+        src="/logoo.png"
+        alt="Luxury Morocco Destinations Logo"
+        className="h-16 w-auto sm:h-20"
+      />
+    </Link>
+  );
+}
+
+
+function MobileMenuButton({
+  isOpen,
+  onToggle,
+}: {
+  isOpen: boolean;
+  onToggle: () => void;
+}): React.JSX.Element {
+  const t = useTranslations("Header");
+
+  return (
+    <button
+      type="button"
+      onClick={onToggle}
+      className="
+        flex h-11 w-11 items-center justify-center
+        rounded-full
+        border border-border
+        bg-card
+        text-heading
+        transition-all duration-300
+        hover:border-primary
+        hover:bg-primary
+        hover:text-primary-foreground
+        focus-visible:outline-none
+        focus-visible:ring-2
+        focus-visible:ring-gold
+        lg:hidden
+      "
+      aria-label={t(isOpen ? "closeMenu" : "openMenu")}
+      aria-expanded={isOpen}
+      aria-controls="mobile-menu"
+    >
+      {isOpen ? (
+        <X className="h-5 w-5" aria-hidden="true" />
+      ) : (
+        <Menu className="h-5 w-5" aria-hidden="true" />
+      )}
+    </button>
+  );
+}
+
+
+
+function DesktopNav({ pathname }: { pathname: string }): React.JSX.Element {
+  const t = useTranslations("Header");
+
+  return (
+    <nav
+      aria-label={t("mainNavigation")}
+      className="hidden items-center gap-1 lg:flex"
+    >
+      {NAV_LINKS.map((link) => {
+        const isActive = isLinkActive(pathname, link.href);
+
+        if (link.dropdown) {
+          return (
+            <DesktopDropdown
+              key={link.href}
+              link={link}
+              isActive={isActive}
+              pathname={pathname}
+            />
+          );
+        }
+
+        return (
+          <Link
+            key={link.href}
+            href={link.href}
+            aria-current={isActive ? "page" : undefined}
+            className={`
+              relative rounded-lg
+              px-3.5 py-2
+              text-sm font-semibold tracking-tight
+              transition-all duration-200
+              focus-visible:outline-none
+              focus-visible:ring-2
+              focus-visible:ring-gold
+              ${
+                isActive
+                  ? "bg-gold-muted text-primary"
+                  : "text-text-main hover:bg-muted hover:text-primary"
+              }
+            `}
+          >
+            {t(link.label)}
+          </Link>
+        );
+      })}
+    </nav>
+  );
+}
+
+function DesktopDropdown({
+  link,
+  isActive,
+  pathname,
+}: {
+  link: NavLink;
+  isActive: boolean;
+  pathname: string;
+}): React.JSX.Element {
+  const t = useTranslations("Header");
+  const params = useParams();
+
+  return (
+    <div className="group relative">
+      <Link
+        href={link.href}
+        aria-current={isActive ? "page" : undefined}
+        className={`
+          relative flex items-center gap-1
+          rounded-lg px-3 py-2
+          text-sm font-semibold tracking-tight
+          transition-all duration-200
+          focus-visible:outline-none
+          focus-visible:ring-2
+          focus-visible:ring-gold
+          ${
+            isActive
+              ? "bg-gold-muted text-primary"
+              : "text-text-main hover:bg-muted hover:text-primary"
+          }
+        `}
+      >
+        {t(link.label)}
+
+        <ChevronDown
+          className="
+            h-3.5 w-3.5
+            transition-transform
+            duration-300
+            group-hover:rotate-180
+          "
+          aria-hidden="true"
+        />
+      </Link>
+
+      <div
+        className="
+          invisible absolute
+          left-0 top-full
+          pt-3
+          opacity-0
+          transition-all
+          duration-200
+          group-hover:visible
+          group-hover:opacity-100
+        "
+      >
+        <ul
+          className="
+            min-w-[240px]
+            rounded-2xl
+            border border-border
+            bg-card
+            p-2
+            shadow-[0_18px_50px_rgba(30,25,21,0.12)]
+          "
+        >
+          {link.dropdown?.map((item) => {
+            const isItemActive = isDropdownActive(
+              pathname,
+              item.href,
+              params.city,
+            );
+
+            return (
+              <li key={item.label}>
+                <Link
+                  href={item.href}
+                  className={`
+                    block rounded-xl
+                    px-4 py-2.5
+                    text-sm font-medium
+                    transition-all duration-200
+                    ${
+                      isItemActive
+                        ? "bg-gold-muted text-primary"
+                        : "text-text-secondary hover:bg-muted hover:text-primary"
+                    }
+                  `}
+                >
+                  {t(item.label)}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </div>
+  );
+}
+
+function MobileNav({
+  pathname,
+  onCloseMobileMenu,
+}: {
+  pathname: string;
+  onCloseMobileMenu: () => void;
+}): React.JSX.Element {
+  const t = useTranslations("Header");
+
+  return (
+    <nav
+      id="mobile-menu"
+      aria-label={t("mobileNavigation")}
+      className="
+        max-h-[calc(100vh-4rem)]
+        overflow-y-auto
+        border-t border-border
+        bg-background
+        shadow-[0_20px_50px_rgba(30,25,21,0.12)]
+        lg:hidden
+      "
+    >
+      <ul className="flex flex-col gap-1 px-4 py-5">
+        {NAV_LINKS.map((link) => {
+          const isActive = isLinkActive(pathname, link.href);
+
+          if (link.dropdown) {
+            return (
+              <MobileDropdown
+                key={link.href}
+                link={link}
+                isActive={isActive}
+                pathname={pathname}
+                onCloseMobileMenu={onCloseMobileMenu}
+              />
+            );
+          }
+
+          return (
+            <li key={link.href}>
+              <Link
+                href={link.href}
+                onClick={onCloseMobileMenu}
+                aria-current={isActive ? "page" : undefined}
+                className={`
+                  block rounded-xl
+                  px-4 py-3
+                  text-sm font-semibold
+                  transition-all duration-200
+                  focus-visible:outline-none
+                  focus-visible:ring-2
+                  focus-visible:ring-gold
+                  ${
+                    isActive
+                      ? "bg-gold-muted text-primary"
+                      : "text-text-secondary hover:bg-muted hover:text-primary"
+                  }
+                `}
+              >
+                {t(link.label)}
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+
+      <div className="border-t border-border px-4 py-5">
+        <div className="mb-5 flex flex-col gap-3">
+          <a
+            href={CONTACT.phoneHref}
+            onClick={onCloseMobileMenu}
+            className="
+              flex items-center gap-3
+              text-sm text-text-secondary
+              transition-colors
+              hover:text-primary
+            "
+          >
+            <span
+              className="
+                flex h-9 w-9
+                items-center justify-center
+                rounded-full
+                bg-gold-muted
+                text-primary
+              "
+            >
+              <Phone className="h-4 w-4" aria-hidden="true" />
+            </span>
+
+            <span className="font-medium">{CONTACT.phone}</span>
+          </a>
+
+          <a
+            href={CONTACT.emailHref}
+            onClick={onCloseMobileMenu}
+            className="
+              flex items-center gap-3
+              text-sm text-text-secondary
+              transition-colors
+              hover:text-primary
+            "
+          >
+            <span
+              className="
+                flex h-9 w-9
+                items-center justify-center
+                rounded-full
+                bg-gold-muted
+                text-primary
+              "
+            >
+              <Mail className="h-4 w-4" aria-hidden="true" />
+            </span>
+
+            <span className="font-medium">{CONTACT.email}</span>
+          </a>
+        </div>
+
+        <LanguageSwitcher />
+      </div>
+    </nav>
+  );
+}
+
+function MobileDropdown({
+  link,
+  isActive,
+  pathname,
+  onCloseMobileMenu,
+}: {
+  link: NavLink;
+  isActive: boolean;
+  pathname: string;
+  onCloseMobileMenu: () => void;
+}): React.JSX.Element {
+  const t = useTranslations("Header");
+  const params = useParams();
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  return (
+    <li>
+      <button
+        type="button"
+        onClick={() => setIsExpanded((prev) => !prev)}
+        aria-expanded={isExpanded}
+        className={`
+          flex w-full
+          items-center justify-between
+          rounded-xl
+          px-4 py-3
+          text-sm font-semibold
+          transition-all duration-200
+          focus-visible:outline-none
+          focus-visible:ring-2
+          focus-visible:ring-gold
+          ${
+            isActive
+              ? "bg-gold-muted text-primary"
+              : "text-text-secondary hover:bg-muted hover:text-primary"
+          }
+        `}
+      >
+        <span>{t(link.label)}</span>
+
+        <ChevronDown
+          className={`
+            h-4 w-4
+            transition-transform
+            duration-300
+            ${isExpanded ? "rotate-180" : ""}
+          `}
+          aria-hidden="true"
+        />
+      </button>
+
+      {isExpanded && (
+        <ul className="mt-1 flex flex-col gap-0.5 pl-4">
+          {link.dropdown?.map((item) => {
+            const isItemActive = isDropdownActive(
+              pathname,
+              item.href,
+              params.city,
+            );
+
+            return (
+              <li key={item.label}>
+                <Link
+                  href={item.href}
+                  onClick={onCloseMobileMenu}
+                  className={`
+                    block rounded-lg
+                    px-4 py-2.5
+                    text-sm font-medium
+                    transition-colors
+                    ${
+                      isItemActive
+                        ? "bg-gold-muted text-primary"
+                        : "text-text-secondary hover:bg-muted hover:text-primary"
+                    }
+                  `}
+                >
+                  {t(item.label)}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </li>
+  );
+}

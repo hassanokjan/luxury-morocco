@@ -1,0 +1,230 @@
+@import "tailwindcss";
+
+
+body {
+  overflow-x: hidden;
+  font-family: var(--font-manrope), Arial, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-cormorant), Georgia, serif;
+}
+
+
+@theme inline {
+  --font-heading: var(--font-cormorant);
+  --font-body: var(--font-manrope);
+
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-heading: hsl(var(--heading));
+  --color-heading-soft: hsl(var(--heading-soft));
+
+  --color-text-main: hsl(var(--text-main));
+  --color-text-secondary: hsl(var(--text-secondary));
+  --color-text-muted: hsl(var(--text-muted));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-border: hsl(var(--border));
+
+  --color-footer: hsl(var(--footer));
+  --color-footer-foreground: hsl(var(--footer-foreground));
+  --color-footer-muted: hsl(var(--footer-muted));
+  --color-footer-border: hsl(var(--footer-border));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-hover: hsl(var(--primary-hover));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-gold: hsl(var(--gold));
+  --color-gold-soft: hsl(var(--gold-soft));
+  --color-gold-muted: hsl(var(--gold-muted));
+
+  --color-desert: hsl(var(--desert));
+  --color-surface-soft: hsl(var(--surface-soft));
+
+  --color-whatsapp: hsl(var(--whatsapp));
+  --color-whatsapp-soft: hsl(var(--whatsapp-soft));
+}
+
+
+:root {
+  /* ═══════════════════════════════════════════════
+     LUXURY MOROCCO DESTINATIONS
+     Premium / Elegant / Warm / Desert Inspired
+     ═══════════════════════════════════════════════ */
+
+  /* ─── BASE ─── */
+  --background: 40 30% 98%;
+  /* #FBF9F5 - ivoire très clair */
+
+  --foreground: 24 18% 10%;
+  /* #1E1916 - noir espresso */
+
+  /* ─── HEADINGS ─── */
+  --heading: 24 22% 9%;
+  /* #1C1714 */
+
+  --heading-soft: 27 12% 34%;
+  /* #61564E */
+
+  /* ─── TEXT ─── */
+  --text-main: 24 12% 14%;
+  /* #29231F */
+
+  --text-secondary: 28 8% 35%;
+  /* #605A55 */
+
+  --text-muted: 30 8% 52%;
+  /* #8E877F */
+
+  /* ─── FOOTER ─── */
+  --footer: 20 12% 5%;
+  /* #0E0C0B - noir premium légèrement chaud */
+
+  --footer-background: 20 12% 5%;
+  /* #0E0C0B */
+
+  --footer-foreground: 40 28% 94%;
+  /* #F5F0E7 */
+
+  --footer-muted: 30 10% 66%;
+  /* #AEA59A */
+
+  --footer-border: 25 10% 18%;
+  /* #322D29 */
+
+  --footer-accent: 38 48% 58%;
+  /* #C4A15F - or doux */
+
+  /* ─── CARDS ─── */
+  --card: 0 0% 100%;
+  /* #FFFFFF */
+
+  --card-foreground: 24 18% 10%;
+
+  /* ─── MUTED / SOFT SECTIONS ─── */
+  --muted: 38 26% 95%;
+  /* #F7F2E9 */
+
+  --muted-foreground: 28 8% 42%;
+  /* #746D67 */
+
+  /* ─── BORDER ─── */
+  --border: 35 16% 88%;
+  /* #E5DED3 */
+
+  /* ─── PRIMARY ─── */
+  --primary: 26 48% 42%;
+  /* #9E6737 - bronze/cuivre premium */
+
+  --primary-hover: 26 52% 34%;
+  /* #84522C */
+
+  --primary-foreground: 40 35% 98%;
+  /* #FCFAF5 */
+
+  /* ─── SECONDARY ─── */
+  --secondary: 24 18% 10%;
+  /* #1E1916 */
+
+  --secondary-foreground: 40 30% 96%;
+  /* #F8F4ED */
+
+  /* ─── ACCENT ─── */
+  --accent: 38 48% 58%;
+  /* #C4A15F - gold champagne */
+
+  --accent-hover: 38 48% 48%;
+  /* #A88847 */
+
+  --accent-foreground: 24 18% 10%;
+
+  /* ─── GOLD ─── */
+  --gold: 42 70% 55%;
+  /* #D9AC3E */
+
+  --gold-soft: 40 45% 46%;
+  /* #AA8741 */
+
+  --gold-muted: 42 40% 93%;
+  /* #F5EEDA */
+
+  /* ─── DESERT ─── */
+  --desert: 27 40% 54%;
+  /* #B77B54 */
+
+  --desert-soft: 30 38% 90%;
+  /* #ECDFD3 */
+
+  /* ─── SURFACE ─── */
+  --surface-soft: 40 30% 97%;
+  /* #FAF7F2 */
+
+  --surface-warm: 34 27% 94%;
+  /* #F4EEE6 */
+
+  /* ─── SUCCESS ─── */
+  --success: 150 42% 38%;
+  /* #388A60 */
+
+  /* ─── ERROR ─── */
+  --error: 4 62% 48%;
+  /* #C9473D */
+
+  /* ─── WARNING ─── */
+  --warning: 38 75% 52%;
+  /* #E4A026 */
+
+  /* ─── WHATSAPP ─── */
+  --whatsapp: 142 70% 43%;
+  /* proche du WhatsApp officiel */
+
+  --whatsapp-soft: 145 32% 93%;
+}
+
+
+html,
+body {
+  margin:0;
+  padding:0;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--gold-soft));
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--gold-soft));
+}
+
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}

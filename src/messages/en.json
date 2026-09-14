@@ -1,0 +1,161 @@
+{
+  "Hero": {
+    "imageAlt": "Luxury Morocco tour experience in Marrakech",
+    "title": "Luxury Morocco",
+    "titleHighlight": " Destinations",
+    "subtitle": "Morocco luxury tours & Morocco travel destinations",
+    "description": "Luxury Morocco Destinations creates private Morocco luxury tours and tailor-made journeys across the country's most remarkable Morocco travel destinations, from Marrakech and Fes to the Sahara Desert and imperial cities.",
+    "toursButton": "Private Morocco Tours",
+    "quoteButton": "Get a Free Quote",
+    "tailorMade": "Tailor-made itineraries",
+    "expertTours": "morocco expert tours"
+  },
+  "Header": {
+    "home": "Home",
+    "tours": "Tours",
+    "dayTrips": "Day Trips",
+    "activities": "Activities",
+    "customTour": "Custom Tour",
+    "blog": "Blog",
+    "about": "About Us",
+    "contact": "Contact",
+    "allTours": "All Tours",
+    "fromMarrakech": "Tours from Marrakech",
+    "fromFes": "Tours from Fes",
+    "fromCasablanca": "Tours from Casablanca",
+    "fromTangier": "Tours from Tangier",
+    "fromAgadir": "Tours from Agadir",
+    "fromErrachidia": "Tours from Errachidia",
+    "aboutCompany": "About Tours Marrakech Desert",
+    "aboutMorocco": "About Morocco",
+    "favorites": "Favorites",
+    "homeLabel": "Tours Marrakech Desert home",
+    "openMenu": "Open navigation menu",
+    "closeMenu": "Close navigation menu",
+    "mainNavigation": "Main navigation",
+    "mobileNavigation": "Mobile navigation",
+    "changeLanguage": "Change language"
+  },
+  "FAQ": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Helpful answers for planning private Morocco luxury tours and tailor-made journeys across the country",
+    "items": [
+      {
+        "q": "What types of Morocco luxury tours does Luxury Morocco Destinations offer?",
+        "a": "Luxury Morocco Destinations creates private Morocco luxury tours, tailor-made itineraries, Sahara desert journeys, cultural trips, and multi-day tours connecting Morocco’s most remarkable destinations. Trips can start from Marrakech, Fes, Casablanca, Tangier, Agadir, or Errachidia and can include the Sahara Desert, Atlas Mountains, imperial cities, Atlantic coast, traditional villages, and historic kasbahs."
+      },
+      {
+        "q": "Can you create a private tailor-made Morocco itinerary?",
+        "a": "Yes. Our Morocco tours can be designed around your travel dates, interests, preferred destinations, accommodation style, and trip duration. Whether you want a romantic escape, family journey, private desert tour, cultural itinerary, or extended Morocco road trip, we can combine destinations and experiences into a personalized journey instead of following a fixed group schedule."
+      },
+      {
+        "q": "Which Morocco travel destinations can I include in my trip?",
+        "a": "Popular Morocco travel destinations include Marrakech, Fes, Casablanca, Rabat, Chefchaouen, Essaouira, Tangier, Ouarzazate, the Dades Valley, Merzouga, the Erg Chebbi dunes, and the Atlas Mountains. Longer itineraries can combine imperial cities, the Sahara Desert, mountain landscapes, coastal towns, and smaller local communities in one private journey."
+      },
+      {
+        "q": "What makes a luxury Sahara desert experience in Morocco special?",
+        "a": "A luxury Sahara experience combines the dramatic dunes of Merzouga with private transportation, carefully selected accommodation, camel rides around sunset, traditional Moroccan hospitality, and an overnight stay in a comfortable desert camp. Depending on your itinerary, the journey can also include the Dades Valley, Todra Gorge, Ouarzazate, historic kasbahs, and Berber communities along the route."
+      },
+      {
+        "q": "How many days should I plan for a luxury Morocco tour?",
+        "a": "The ideal duration depends on how much of Morocco you want to experience. A 3 to 5-day itinerary works well for a focused Marrakech and Sahara journey, while 7 to 10 days allows you to combine the desert with imperial cities, valleys, and the Atlas Mountains. For a more complete Morocco luxury tour including northern cities and the Atlantic coast, 10 to 14 days gives a more relaxed pace."
+      },
+      {
+        "q": "Are Luxury Morocco Destinations tours suitable for couples, families, and small private groups?",
+        "a": "Yes. Our private Morocco tours can be adapted for couples, honeymooners, families, friends, and small private groups. The itinerary, travel pace, accommodation, activities, and daily schedule can be adjusted to suit different travel styles, making it possible to create a more comfortable and personal Morocco experience."
+      }
+    ]
+  },
+  "CustomTour": {
+    "meta": {
+      "title": "Customize Your Morocco Tour — morocco luxury tours | Luxury Morocco Destinations",
+      "description": "Design your perfect Morocco itinerary with our local experts. Private Marrakech desert tours, custom Sahara adventures, and personalized journeys built around your pace, interests and budget."
+    },
+    "hero": {
+    "eyebrow": "Private & Tailor-Made Morocco Journeys",
+    "title": "Your Morocco Journey, Designed Around You"
+    },
+    "intro": {
+      "eyebrow": "Made for You",
+      "title": "Create a Private Morocco Tour That Feels Truly Yours",
+      "description": "Choose the places you want to see, the experiences that matter to you and the rhythm that suits your trip. Spend more time in Marrakech, cross the Atlas Mountains, sleep among the dunes of Merzouga, wander through Fes or slow down along the Atlantic coast. Luxury Morocco Destinations turns your ideas into a private, tailor-made Morocco journey with carefully selected stays, local experiences and seamless travel between each destination.",
+      "cta": "Design My Morocco Trip"
+    },
+    "features": {
+      "guides": {
+        "title": "Expert Local Guides",
+        "description": "Our local guides use their deep expertise in Morocco's culture, history and hidden trails to create a tour shaped entirely around your interests — from Marrakech's vibrant souks to the silent dunes of the Sahara."
+      },
+      "timing": {
+        "title": "Ideal Timing for Every Destination",
+        "description": "We guide you on the best times to visit each region for perfect weather and fewer crowds. Spring suits Fes and the Atlas, autumn is ideal for the Sahara, and winter is great for the Atlantic coast around Essaouira and Agadir."
+      },
+      "itinerary": {
+        "title": "Custom Itineraries, Zero Compromises",
+        "description": "We craft seamless itineraries based on your chosen spots, blending iconic landmarks like Aït Ben Haddou and Merzouga with hidden gems that only locals know. Every route is personalized, every stop is intentional."
+      },
+      "booking": {
+        "title": "Easy, Flexible Booking Process",
+        "description": "Share your must-see places, preferred dates and group size, and we'll handle every detail — transport, accommodation, guides and activities. Contact us by WhatsApp, email or form, and receive your custom itinerary within 24 hours."
+      }
+    },
+    "promises": {
+      "title": "What We Guarantee",
+      "items": {
+        "private": {
+          "title": "100% Private Tours",
+          "description": "Every custom tour is exclusively yours — your own vehicle, your own guide, your own schedule. No sharing with strangers, no rushed group stops."
+        },
+        "flexible": {
+          "title": "Fully Flexible Itineraries",
+          "description": "Change your mind mid-trip? No problem. Want to stay an extra night in the desert? Done. Your itinerary adapts to you, not the other way around."
+        },
+        "support": {
+          "title": "24/7 On-Trip Support",
+          "description": "From the moment you land in Morocco to your last airport transfer, our team is one WhatsApp message away. Day or night, rain or shine, we've got your back."
+        },
+        "local": {
+          "title": "Local Knowledge You Can't Google",
+          "description": "Our Berber-born guides know the shortcuts, the family-run restaurants, the viewpoints without crowds, and the stories behind every kasbah door. That's what makes a custom tour unforgettable."
+        }
+      }
+    }
+  },
+  "Footer": {
+    "brand": {
+      "description": "Luxury Morocco Destinations is a premium Morocco tour operator specializing in private desert journeys, luxury tours, curated day trips and tailor-made travel experiences across Marrakech, Fes, the Sahara and Morocco’s most iconic destinations."
+    },
+    "tours": {
+      "title": "Popular Tours",
+      "marrakech": "Tours from Marrakech",
+      "fes": "Tours from Fes",
+      "casablanca": "Tours from Casablanca",
+      "tangier": "Tours from Tangier",
+      "agadir": "Tours from Agadir",
+      "Errachidia": "Tours from Errachidia"
+    },
+    "explore": {
+      "title": "Explore",
+      "dayTrips": "Day Trips",
+      "tours": "Tours",
+      "customTour": "Customize Your Tour",
+      "blog": "Blog"
+    },
+    "company": {
+      "title": "Company",
+      "about": "About Us",
+      "aboutMorocco": "About Morocco",
+      "contact": "Contact"
+    },
+    "contact": {
+      "title": "Get in Touch",
+      "location": "Marrakech · Fes · Merzouga, Morocco",
+      "payment": "We Accept"
+    },
+    "copyright": "All rights reserved.",
+    "legal": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
+    }
+  }
+}
