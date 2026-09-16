@@ -112,13 +112,13 @@ export default function Tripadvisor({locale}: {locale: string}): React.JSX.Eleme
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="View review on Tripadvisor"
-                  className="flex shrink-0 items-center gap-2 text-sm font-semibold text-heading transition-colors hover:text-[#00AA6C]"
+                  className="flex shrink-0 items-center gap-2 text-sm font-semibold"
                 >
                   <SiTripadvisor
-                    className="h-6 w-6 text-[#00AA6C]"
+                    className="h-6 w-6 text-primary"
                     aria-hidden="true"
                   />
-                  <span className="hidden sm:inline">Tripadvisor</span>
+                  <span className="hidden text-primary sm:inline">Tripadvisor</span>
                 </a>
               </div>
             </article>

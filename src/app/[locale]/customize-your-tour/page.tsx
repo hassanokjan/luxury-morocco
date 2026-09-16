@@ -11,13 +11,14 @@ import {
   Shield,
 } from "lucide-react";
 import ContactForm from "@/components/sections/Contact/ContactForms";
+import InstagramSection from "@/components/ui/Instgramme";
 
 export async function generateMetadata({params,}: {params: Promise<{ locale: string }>;}): Promise<Metadata> {
+
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "CustomTour.meta" });
 
-  const baseUrl =
-    process.env.NEXT_PUBLIC_BASE_URL || "luxurymoroccodestinations.com";
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "luxurymoroccodestinations.com";
 
   const localizedPath = getPathname({
     locale,
@@ -28,12 +29,12 @@ export async function generateMetadata({params,}: {params: Promise<{ locale: str
     title: t("title"),
     description: t("description"),
     keywords: [
-      "custom morocco tour",
-      "tailor made morocco trip",
+      "morocco custom tours",
+      "morocco destinations",
       "private morocco tour",
-      "plan my morocco trip",
-      "custom sahara desert tour",
-      "marrakech custom itinerary",
+      "morocco trip planning",
+      "custom tour",
+      "marrakech itinerary",
       "custom marrakech to merzouga",
     ],
     alternates: {
@@ -59,12 +60,14 @@ export async function generateMetadata({params,}: {params: Promise<{ locale: str
   };
 }
 
+
 const FEATURES = [
   { key: "guides", icon: MapPin },
   { key: "timing", icon: Calendar },
   { key: "itinerary", icon: Route },
   { key: "booking", icon: MessageCircle },
 ] as const;
+
 
 const PROMISES = [
   { key: "private", icon: Users },
@@ -73,11 +76,8 @@ const PROMISES = [
   { key: "local", icon: MapPin },
 ] as const;
 
-export default async function CustomTourPage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
+export default async function CustomTourPage({params,}: {params: Promise<{ locale: string }>;}) {
+
   const { locale } = await params;
   setRequestLocale(locale);
 
@@ -96,9 +96,9 @@ export default async function CustomTourPage({
     address: {
       "@type": "PostalAddress",
       streetAddress: "Medina",
-      addressLocality: "Marrakech",
+      addressLocality: "casablanca",
       addressRegion: "Marrakech-Safi",
-      postalCode: "40000",
+      postalCode: "20159",
       addressCountry: "MA",
     },
     areaServed: [
@@ -267,9 +267,6 @@ export default async function CustomTourPage({
         </div>
       </section>
 
-
-
-
       <section>
         <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-10 lg:px-8">
           <div className="grid gap-8 lg:grid-cols-2 lg:gap-10">
@@ -300,6 +297,9 @@ export default async function CustomTourPage({
             <ContactForm />
           </div>
         </div>
+      </section>
+      <section className="bg-background pb-12">
+        <InstagramSection />
       </section>
     </>
   );

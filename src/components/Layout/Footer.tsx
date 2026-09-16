@@ -50,7 +50,7 @@ export default async function Footer() {
           <div className="sm:col-span-2 lg:col-span-1">
             <Link href="/" aria-label="Tours Marrakech Desert home">
               <Image
-                src="/logoo.png"
+                src="/logo.png"
                 alt="Luxury Morocco Destinations Logo"
                 width={160}
                 height={40}

@@ -1,4 +1,63 @@
 {
+  "AboutUs": {
+    "hero": {
+      "title": "About Luxury Morocco Destinations",
+      "description": "Luxury Morocco Destinations is a local Morocco travel agency specializing in private luxury tours, tailor-made itineraries, desert journeys and cultural experiences across the country, all planned with local expertise and personal care.",
+      "imageAlt": "Private luxury Morocco tour across the Sahara Desert"
+    },
+    "story": {
+      "eyebrow": "Our Story",
+      "title": "A Local Morocco Travel Agency,",
+      "titleHighlight": "Focused on Private & Tailor-Made Journeys",
+      "introduction": "is a local travel agency creating private Morocco tours for travelers who want more freedom, comfort and personal attention.",
+      "founderIntro": "The company is led by",
+      "founder": "Hassan, founder and expert local guide",
+      "founderDescription": ", whose experience across Morocco helps shape journeys that feel natural, well paced and genuinely connected to each destination.",
+      "journeysIntro": "From Marrakech and Fes to the Atlas Mountains, Sahara Desert and Atlantic coast, we design",
+      "journeysHighlight": "tailor-made Morocco journeys",
+      "journeysDescription": "around your interests, travel style and preferred pace.",
+      "luxury": "For us, luxury means thoughtful planning, trusted local support, comfortable travel and enough time to enjoy Morocco without feeling rushed.",
+      "toursButton": "View Morocco Tours",
+      "customizeButton": "Design Your Private Trip",
+      "imageAlt": "Hassan, founder and expert local guide at Luxury Morocco Destinations"
+    },
+    "commitment": {
+      "title": "Thoughtful Travel,",
+      "titleHighlight": "Personally Designed",
+      "description": "At Luxury Morocco Destinations, every journey is planned with care, discretion and local insight. We focus on private experiences that feel effortless, well paced and genuinely personal.",
+      "priority": "From the first conversation to the final day of your trip, our priority is simple: thoughtful service, trusted support and a Morocco journey designed around you.",
+      "founderRole": "Founder & Expert Local Guide",
+      "imageAlt": "Travelers enjoying a private Morocco tour with Luxury Morocco Destinations"
+    },
+    "values": {
+      "title": "Our Core Values",
+      "items": {
+        "safety": "Your safety, comfort and peace of mind come first throughout every journey.",
+        "flexibility": "Every itinerary can be adjusted to match your pace, interests and preferred travel style.",
+        "atmosphere": "We create a relaxed and welcoming atmosphere so you can enjoy Morocco without feeling rushed.",
+        "vehicles": "Our private vehicles are carefully selected and maintained for comfortable travel across the country.",
+        "service": "We focus on thoughtful service, local expertise and genuine value in every experience.",
+        "recommendations": "Our recommendations are based on what interests you most, not on a fixed one-size-fits-all program.",
+        "care": "From your first message to the final day of your trip, our team is committed to making your Morocco journey feel personal and well cared for."
+      }
+    },
+    "contact": {
+      "title": "We'd Love to Hear From You",
+      "description": "Please feel free to get in touch with us at any time.",
+      "buttonLabel": "Contact Us"
+    },
+    "instagram": {
+      "title": "Follow Our Journey",
+      "description": "Follow Luxury Morocco Destinations for a closer look at Morocco — Sahara sunsets, Marrakech streets, Atlas landscapes, coastal escapes, and moments from our private luxury tours.",
+      "buttonLabel": "Follow us on Instagram",
+      "photoAlts": {
+        "photo1": "Moroccan desert host wearing a traditional blue turban inside a Sahara camp",
+        "photo2": "Local Moroccan guide overlooking a palm oasis during a private Morocco tour",
+        "photo3": "Travelers enjoying a guided Morocco experience near a palm valley and traditional village",
+        "photo4": "Guests sharing traditional Moroccan tea with local hosts during a desert experience"
+      }
+    }
+  },
   "Hero": {
     "imageAlt": "Luxury Morocco tour experience in Marrakech",
     "title": "Luxury Morocco",
@@ -26,10 +85,9 @@
     "fromTangier": "Tours from Tangier",
     "fromAgadir": "Tours from Agadir",
     "fromErrachidia": "Tours from Errachidia",
-    "aboutCompany": "About Tours Marrakech Desert",
+    "aboutCompany": "About Luxury Morocco Destinations",
     "aboutMorocco": "About Morocco",
-    "favorites": "Favorites",
-    "homeLabel": "Tours Marrakech Desert home",
+    "homeLabel": "Luxury Morocco Destinations home",
     "openMenu": "Open navigation menu",
     "closeMenu": "Close navigation menu",
     "mainNavigation": "Main navigation",
@@ -72,8 +130,8 @@
       "description": "Design your perfect Morocco itinerary with our local experts. Private Marrakech desert tours, custom Sahara adventures, and personalized journeys built around your pace, interests and budget."
     },
     "hero": {
-    "eyebrow": "Private & Tailor-Made Morocco Journeys",
-    "title": "Your Morocco Journey, Designed Around You"
+      "eyebrow": "Private & Tailor-Made Morocco Journeys",
+      "title": "Your Morocco Journey, Designed Around You"
     },
     "intro": {
       "eyebrow": "Made for You",
@@ -119,6 +177,47 @@
           "description": "Our Berber-born guides know the shortcuts, the family-run restaurants, the viewpoints without crowds, and the stories behind every kasbah door. That's what makes a custom tour unforgettable."
         }
       }
+    }
+  },
+  "MoroccoTourist": {
+    "meta": {
+      "title": "Morocco Travel Guide — Culture, Geography & Best Destinations | Tours Marrakech Desert",
+      "description": "Everything you need to know before traveling to Morocco: geography, culture, people, best destinations, safety, weather and why millions choose Morocco every year."
+    },
+    "hero": {
+      "eyebrow": "morocco vacation travel guide",
+      "title": "morocco tour guide : Culture, luxury Destinations & Sahara Desert Tours",
+      "subtitle": "Experience Morocco luxury tours designed around the country’s most remarkable destinations, from Marrakech and Fes to the Sahara Desert, Atlas Mountains and Atlantic coast."
+    },
+    "geography": {
+      "title": "Where Is Morocco?",
+      "paragraph1": "<bold>Morocco</bold> sits at the northwestern tip of Africa, separated from Spain by just 14 kilometers across the Strait of Gibraltar. Bordered by the Atlantic Ocean to the west, the Mediterranean Sea to the north, Algeria to the east and Mauritania to the south, <bold>Morocco's location</bold> makes it one of the most accessible African countries from Europe.",
+      "paragraph2": "The landscape shifts dramatically from the <bold>Rif Mountains</bold> in the north through the fertile plains around Fes and Meknes, over the snow-capped <bold>High Atlas</bold> (reaching 4,167 m at Jebel Toubkal, North Africa's highest peak), down into the vast <bold>Sahara Desert</bold> in the southeast — where the iconic Erg Chebbi dunes near Merzouga rise over 150 meters.",
+      "flagTitle": "The Flag of Morocco",
+      "flagDescription": "A red field bearing a green pentacle (five-pointed star), the Seal of Solomon. Red represents the ruling Alaouite dynasty and green symbolizes Islam, peace and hope."
+    },
+    "culture": {
+      "eyebrow": "A crossroads of civilizations",
+      "title": "Morocco People & Culture",
+      "paragraph1": "<bold>Moroccan culture</bold> is a vibrant mosaic shaped by Berber (Amazigh), Arab, Andalusian and Saharan influences over thousands of years. The indigenous <bold>Berber people</bold> — who have inhabited North Africa for over 5,000 years — remain central to daily life, from the architecture of kasbahs to the rhythms of Gnawa music echoing through Marrakech's Jemaa el-Fna.",
+      "paragraph2": "Hospitality sits at the heart of <bold>Moroccan society</bold>. A glass of mint tea is never refused, strangers are welcomed like family, and meals are shared from communal tagine pots. With over 37 million people speaking Arabic, Tamazight, French and increasingly English, <bold>Morocco</bold> is a multilingual, multicultural country that feels both ancient and alive."
+    },
+    "why": {
+      "eyebrow": "A Country of Remarkable Contrasts",
+      "title": "What Makes Morocco Worth Visiting?",
+      "p1": "Few countries bring together as many different landscapes and experiences as <bold>Morocco</bold>. In the space of one journey, travelers can move from historic medinas and palm-filled valleys to Atlantic beaches, high mountain roads and the vast Sahara. With sunshine through much of the year, it is a destination that works equally well for cultural journeys, private road trips, coastal stays and desert adventures.",
+      "p2": "Morocco's popularity continues to grow. The country welcomed close to <bold>19.8 million visitors in 2025</bold>, reflecting its increasing importance as one of Africa's leading travel destinations. Tourism revenue has also risen significantly, supporting hotels, guides, restaurants, transport providers, artisans and local communities throughout the country.",
+      "p3": "Another major chapter is approaching with the <bold>2030 FIFA World Cup</bold>, which Morocco will co-host with Spain and Portugal. Preparations are bringing major investment into transport, airports, stadiums and visitor infrastructure. Projects involving rail connections, airport expansion and urban improvements are expected to make journeys between cities such as <bold>Marrakech</bold>, Casablanca, Rabat and Tangier easier and more comfortable for international travelers.",
+      "p4": "For visitors, these improvements go far beyond the tournament itself. Faster connections and improved infrastructure will make it simpler to combine several regions in one private Morocco itinerary. A traveler can begin in <bold>Casablanca</bold>, continue through Rabat and <bold>Fes</bold>, cross the Middle Atlas toward the Sahara and finish among the palaces, gardens and souks of Marrakech without sacrificing comfort along the way.",
+      "p5": "The strongest reason to travel here, however, remains the variety of experiences found within a relatively compact country. <bold>Fes and Marrakech</bold> offer labyrinthine medinas, historic architecture, traditional workshops and centuries of Moroccan heritage. The Atlantic coast brings a different rhythm in Essaouira and Agadir, while the Atlas Mountains open the door to valleys, Amazigh villages and scenic roads. Further south, <bold>Merzouga</bold> introduces travelers to the dunes of Erg Chebbi, camel journeys and nights beneath a desert sky. This combination of culture, landscape and local hospitality is what makes <bold>Morocco</bold> especially well suited to private and luxury travel."
+    },
+
+    "practical": {
+      "eyebrow": "Plan Your Journey",
+      "title": "Essential Morocco Travel Advice",
+      "p1": "Choosing the <bold>best time to visit Morocco</bold> depends largely on the regions included in your itinerary. Spring from March to May and autumn from September to November are excellent for journeys combining cities, mountains and the desert. Marrakech is generally warm without the extreme heat of midsummer, while Sahara evenings remain comfortable. During summer, Essaouira and Agadir benefit from Atlantic breezes, whereas winter can be an excellent period for clear desert skies and cooler sightseeing. Travelers considering <bold>desert tours from Marrakech</bold> should also remember that temperatures can change considerably between daytime and night.",
+      "p2": "For many international travelers, entering the country is straightforward. Citizens of numerous countries, including the EU, UK, USA, Canada and Australia, can generally visit <bold>Morocco visa-free</bold> for tourism stays of up to 90 days. The local currency is the <bold>Moroccan dirham (MAD)</bold>. Cards are widely used in quality hotels, established restaurants and many shops in larger cities, but cash remains useful in medinas, traditional markets, mountain villages and smaller towns. Travel costs can vary considerably depending on whether you choose simple accommodation, private transport, luxury riads or fully customized tours.",
+      "p3": "<bold>Morocco</bold> is well established as an international tourism destination, but sensible travel habits are still recommended. Keep personal belongings secure in crowded areas, work with professional guides when needed and choose established operators for longer journeys into the Sahara. Arabic and Tamazight are official languages, French is widely understood, and English and Spanish are increasingly common in tourism areas. At <bold>Luxury Morocco Destinations</bold>, our local team helps travelers organize private transportation, tailored itineraries and on-trip support so they can move between Morocco's cities, mountains, coast and desert with greater comfort and confidence."
     }
   },
   "Footer": {

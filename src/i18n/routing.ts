@@ -8,27 +8,72 @@ export const routing = defineRouting({
 
   pathnames: {
     "/": "/",
-    "/tours/from/[city]": "/tours/from/[city]",
-    "/day-trips": "/day-trips",
-    "/customize-your-tour": "/customize-your-tour",
-    "/blog": "/blog",
-    "/about/morocco_tourist": "/about/morocco_tourist",
 
+    // Tours
     "/tours": {
       en: "/tours",
+      es: "/tours",
+    },
+
+    "/tours/[slug]": {
+      en: "/tours/[slug]",
+      es: "/tours/[slug]",
+    },
+
+    "/tours/from/[city]": {
+      en: "/tours/from/[city]",
+      es: "/tours/desde/[city]",
+    },
+
+    // Day Trips
+    "/day-trips": {
+      en: "/day-trips",
       es: "/excursiones",
     },
 
-    "/about": {
-      en: "/about",
-      es: "/sobre-nosotros",
+    "/day-trips/[slug]": {
+      en: "/day-trips/[slug]",
+      es: "/excursiones/[slug]",
     },
 
+    // Customize
+    "/customize-your-tour": {
+      en: "/customize-your-tour",
+      es: "/personaliza-tu-tour",
+    },
+
+    // Blog
+    "/blog": {
+      en: "/blog",
+      es: "/blog",
+    },
+
+    "/blog/[slug]": {
+      en: "/blog/[slug]",
+      fr: "/blog/[slug]",
+      es: "/blog/[slug]",
+    },
+
+    // About
+    "/about": {
+      en: "/about",
+      fr: "/a-propos",
+      es: "/sobre-nosotros",
+    },
+    "/about/morocco_tourist": {
+      en: "/about/morocco-tourist",
+      fr: "/a-propos/tourisme-maroc",
+      es: "/sobre-nosotros/turismo-marruecos",
+    },
+
+    // Contact
     "/contact": {
       en: "/contact",
+      fr: "/contact",
       es: "/contacto",
     },
   },
+
 });
 
 export type Locale = (typeof routing.locales)[number];

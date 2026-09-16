@@ -3,8 +3,8 @@ import { FaInstagram } from "react-icons/fa";
 import React from "react";
 
 import photo1 from "@/../public/personnel/hassan1.jpeg";
-import photo2 from "@/../public/personnel/hassan2.jpeg";
-import photo3 from "@/../public/personnel/hassan4.jpeg";
+import photo3 from "@/../public/personnel/hassan6.jpeg";
+import photo2 from "@/../public/personnel/hassan4.jpeg";
 import photo4 from "@/../public/personnel/hassan5.jpeg";
 
 
@@ -47,25 +47,23 @@ export default async function InstagramSection(): Promise<React.JSX.Element> {
         </h2>
 
         <p className="mx-auto mt-4 max-w-6xl text-base leading-7 text-text-secondary sm:text-lg sm:leading-8">
-          Follow Luxury Morocco Destinations for a closer look at Morocco —
-          Sahara sunsets, Marrakech streets, Atlas landscapes, coastal escapes,
-          and moments from our private luxury tours.
+          Follow Luxury Morocco Destinations for a closer look at Morocco — Sahara sunsets, Marrakech streets, Atlas landscapes, coastal escapes, and moments from our private luxury tours.
         </p>
 
         <div className="mt-10 mx-auto max-w-5xl grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {photos.map((photo) => (
+          {photos.map((photo, index) => (
             <div
               key={photo.id}
               className="relative aspect-4/5 overflow-hidden rounded-xl border border-border bg-card shadow-sm"
             >
               <Image
-                src={photo.src}
-                alt={photo.alt}
+                src={photo?.src}
+                alt={photo?.alt}
                 fill
                 loading="lazy"
                 quality={60}
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                className="object-cover"
+                className="object-cover object-center hover:scale-105 transition-transform duration-300 ease-in-out hover:cursor-pointer"
               />
             </div>
           ))}

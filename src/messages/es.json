@@ -1,4 +1,52 @@
 {
+  "AboutUs": {
+    "hero": {
+      "title": "Sobre Luxury Morocco Destinations",
+      "description": "Luxury Morocco Destinations es una agencia de viajes local en Marruecos especializada en tours privados de lujo, itinerarios a medida, viajes por el desierto y experiencias culturales por todo el país, planificados con conocimiento local y atención personal.",
+      "imageAlt": "Tour privado de lujo por Marruecos a través del desierto del Sáhara"
+    },
+    "story": {
+      "eyebrow": "Nuestra historia",
+      "title": "Una agencia de viajes local en Marruecos,",
+      "titleHighlight": "Especializada en viajes privados y a medida",
+      "introduction": "es una agencia de viajes local que crea tours privados por Marruecos para viajeros que buscan más libertad, comodidad y atención personal.",
+      "founderIntro": "La empresa está dirigida por",
+      "founder": "Hassan, fundador y guía local experto",
+      "founderDescription": ", cuya experiencia por todo Marruecos ayuda a crear viajes naturales, con un ritmo equilibrado y una conexión auténtica con cada destino.",
+      "journeysIntro": "Desde Marrakech y Fez hasta las montañas del Atlas, el desierto del Sáhara y la costa atlántica, diseñamos",
+      "journeysHighlight": "viajes a medida por Marruecos",
+      "journeysDescription": "en torno a tus intereses, tu estilo de viaje y tu ritmo preferido.",
+      "luxury": "Para nosotros, el lujo significa una planificación cuidada, apoyo local de confianza, viajes cómodos y tiempo suficiente para disfrutar de Marruecos sin prisas.",
+      "toursButton": "Ver tours por Marruecos",
+      "customizeButton": "Diseña tu viaje privado",
+      "imageAlt": "Hassan, fundador y guía local experto de Luxury Morocco Destinations"
+    },
+    "commitment": {
+      "title": "Viajes cuidadosamente planificados,",
+      "titleHighlight": "Diseñados para ti",
+      "description": "En Luxury Morocco Destinations, cada viaje se planifica con cuidado, discreción y conocimiento local. Nos centramos en experiencias privadas que se disfrutan sin esfuerzo, con un ritmo equilibrado y un carácter verdaderamente personal.",
+      "priority": "Desde la primera conversación hasta el último día de tu viaje, nuestra prioridad es sencilla: un servicio atento, asistencia de confianza y un viaje por Marruecos diseñado a tu medida.",
+      "founderRole": "Fundador y guía local experto",
+      "imageAlt": "Viajeros disfrutando de un tour privado por Marruecos con Luxury Morocco Destinations"
+    },
+    "values": {
+      "title": "Nuestros valores fundamentales",
+      "items": {
+        "safety": "Tu seguridad, comodidad y tranquilidad son lo primero durante todo el viaje.",
+        "flexibility": "Cada itinerario puede adaptarse a tu ritmo, tus intereses y tu estilo de viaje preferido.",
+        "atmosphere": "Creamos un ambiente relajado y acogedor para que puedas disfrutar de Marruecos sin prisas.",
+        "vehicles": "Nuestros vehículos privados se seleccionan y mantienen cuidadosamente para viajar con comodidad por todo el país.",
+        "service": "Nos centramos en un servicio atento, el conocimiento local y un valor auténtico en cada experiencia.",
+        "recommendations": "Nuestras recomendaciones se basan en lo que más te interesa, no en un programa fijo e igual para todos.",
+        "care": "Desde tu primer mensaje hasta el último día de tu viaje, nuestro equipo se compromete a que tu experiencia por Marruecos sea personal y esté cuidada en cada detalle."
+      }
+    },
+    "contact": {
+      "title": "Nos encantaría saber de ti",
+      "description": "No dudes en ponerte en contacto con nosotros en cualquier momento.",
+      "buttonLabel": "Contáctanos"
+    }
+  },
   "Hero": {
     "imageAlt": "Experiencia de viaje de lujo por Marruecos en Marrakech",
     "title": "Luxury Morocco",
@@ -25,10 +73,11 @@
     "fromCasablanca": "Circuitos desde Casablanca",
     "fromTangier": "Circuitos desde Tánger",
     "fromAgadir": "Circuitos desde Agadir",
-    "aboutCompany": "Sobre Tours Marrakech Desert",
+    "fromErrachidia": "Circuitos desde Errachidia",
+    "aboutCompany": "Sobre luxury Morocco Destinations",
     "aboutMorocco": "Sobre Marruecos",
     "favorites": "Favoritos",
-    "homeLabel": "Inicio de Tours Marrakech Desert",
+    "homeLabel": "Inicio de luxury Morocco Destinations",
     "openMenu": "Abrir el menú de navegación",
     "closeMenu": "Cerrar el menú de navegación",
     "mainNavigation": "Navegación principal",
@@ -118,6 +167,46 @@
           "description": "Nuestros guías de origen bereber conocen rutas alternativas, restaurantes familiares, miradores tranquilos y las historias que se esconden detrás de cada kasbah. Ese conocimiento local aporta una dimensión mucho más auténtica a cada viaje personalizado."
         }
       }
+    }
+  },
+   "MoroccoTourist": {
+    "meta": {
+      "title": "Guía de viaje por Marruecos — Cultura, geografía y mejores destinos | Luxury Morocco Destinations",
+      "description": "Todo lo que necesitas saber antes de viajar a Marruecos: geografía, cultura, población, mejores destinos, seguridad, clima y las razones por las que millones de viajeros eligen Marruecos cada año."
+    },
+    "hero": {
+      "eyebrow": "guía de vacaciones y viajes por Marruecos",
+      "title": "Guía de Marruecos: cultura, destinos de lujo y tours por el desierto del Sáhara",
+      "subtitle": "Vive tours de lujo por Marruecos diseñados alrededor de los destinos más destacados del país, desde Marrakech y Fez hasta el desierto del Sáhara, las montañas del Atlas y la costa atlántica."
+    },
+    "geography": {
+      "title": "¿Dónde está Marruecos?",
+      "paragraph1": "<bold>Marruecos</bold> se encuentra en el extremo noroeste de África, separado de España por apenas 14 kilómetros a través del estrecho de Gibraltar. Limita con el océano Atlántico al oeste, el mar Mediterráneo al norte, Argelia al este y Mauritania al sur. La <bold>ubicación de Marruecos</bold> lo convierte en uno de los países africanos más accesibles desde Europa.",
+      "paragraph2": "El paisaje cambia radicalmente desde las <bold>montañas del Rif</bold> en el norte, pasando por las fértiles llanuras de Fez y Meknes, hasta las cumbres nevadas del <bold>Alto Atlas</bold>, donde el Jebel Toubkal alcanza los 4.167 metros y se convierte en la montaña más alta del norte de África. Más al sureste comienza el inmenso <bold>desierto del Sáhara</bold>, donde las emblemáticas dunas de Erg Chebbi, cerca de Merzouga, superan los 150 metros de altura.",
+      "flagTitle": "La bandera de Marruecos",
+      "flagDescription": "La bandera de Marruecos tiene un fondo rojo con un pentagrama verde de cinco puntas, conocido como el Sello de Salomón. El rojo está vinculado a la dinastía alauí, mientras que el verde simboliza el islam, la paz y la esperanza."
+    },
+    "culture": {
+      "eyebrow": "Un encuentro de civilizaciones",
+      "title": "La gente y la cultura de Marruecos",
+      "paragraph1": "La <bold>cultura marroquí</bold> es una rica combinación de influencias amazigh, árabes, andalusíes y saharianas desarrolladas durante miles de años. El pueblo <bold>amazigh</bold>, originario del norte de África desde hace más de 5.000 años, sigue ocupando un lugar esencial en la identidad del país, desde la arquitectura de las kasbahs hasta los ritmos de la música Gnawa que se escuchan en lugares como Jemaa el-Fna, en Marrakech.",
+      "paragraph2": "La hospitalidad ocupa un lugar central en la <bold>sociedad marroquí</bold>. Compartir un té de menta, recibir a los visitantes con generosidad y reunirse alrededor de un tajín forman parte de la vida cotidiana. Con más de 37 millones de habitantes que hablan árabe, tamazight, francés y, cada vez más, inglés, <bold>Marruecos</bold> es un país multilingüe y multicultural donde las tradiciones históricas conviven con una sociedad moderna y dinámica."
+    },
+    "why": {
+      "eyebrow": "Un país de contrastes extraordinarios",
+      "title": "¿Por qué merece la pena viajar a Marruecos?",
+      "p1": "Pocos países reúnen tantos paisajes y experiencias diferentes como <bold>Marruecos</bold>. En un mismo viaje es posible pasar de medinas históricas y valles cubiertos de palmeras a playas atlánticas, carreteras de alta montaña y la inmensidad del Sáhara. Gracias a su clima soleado durante gran parte del año, el país se adapta perfectamente a viajes culturales, rutas privadas, escapadas costeras y aventuras por el desierto.",
+      "p2": "La popularidad de Marruecos continúa creciendo. El país recibió cerca de <bold>19,8 millones de visitantes en 2025</bold>, consolidando su posición como uno de los principales destinos turísticos de África. Los ingresos procedentes del turismo también han aumentado de forma significativa, beneficiando a hoteles, guías, restaurantes, empresas de transporte, artesanos y comunidades locales de todo el país.",
+      "p3": "Una nueva etapa se acerca con la <bold>Copa Mundial de la FIFA 2030</bold>, que Marruecos organizará junto con España y Portugal. Los preparativos están impulsando importantes inversiones en transporte, aeropuertos, estadios e infraestructuras turísticas. Los proyectos ferroviarios, la ampliación de aeropuertos y las mejoras urbanas harán que los desplazamientos entre ciudades como <bold>Marrakech</bold>, Casablanca, Rabat y Tánger sean más cómodos para los viajeros internacionales.",
+      "p4": "Para los visitantes, estas mejoras tendrán beneficios que irán mucho más allá del propio torneo. Las conexiones más rápidas y una infraestructura renovada facilitarán la combinación de varias regiones en un único itinerario privado por Marruecos. Un viajero podrá comenzar su ruta en <bold>Casablanca</bold>, continuar por Rabat y <bold>Fez</bold>, atravesar el Medio Atlas hacia el Sáhara y terminar entre los palacios, jardines y zocos de Marrakech con mayor comodidad.",
+      "p5": "Sin embargo, la principal razón para visitar el país sigue siendo la enorme variedad de experiencias que ofrece en un territorio relativamente compacto. <bold>Fez y Marrakech</bold> reúnen medinas laberínticas, arquitectura histórica, talleres artesanales y siglos de patrimonio marroquí. La costa atlántica ofrece un ambiente diferente en Essaouira y Agadir, mientras que las montañas del Atlas permiten recorrer valles, pueblos amazigh y carreteras panorámicas. Más al sur, <bold>Merzouga</bold> abre las puertas a las dunas de Erg Chebbi, los paseos en camello y las noches bajo el cielo del desierto. Esta combinación de cultura, paisajes y hospitalidad local convierte a <bold>Marruecos</bold> en un destino especialmente atractivo para viajes privados y de lujo."
+    },
+    "practical": {
+      "eyebrow": "Planifica tu viaje",
+      "title": "Consejos esenciales para viajar a Marruecos",
+      "p1": "Elegir la <bold>mejor época para visitar Marruecos</bold> depende principalmente de las regiones que quieras incluir en tu itinerario. La primavera, de marzo a mayo, y el otoño, de septiembre a noviembre, son excelentes temporadas para combinar ciudades, montañas y desierto. Marrakech suele ofrecer temperaturas cálidas sin el calor extremo del verano, mientras que las noches en el Sáhara son más agradables. Durante el verano, Essaouira y Agadir disfrutan de la brisa atlántica, mientras que el invierno puede ser una excelente época para contemplar cielos despejados en el desierto y recorrer las ciudades con temperaturas más frescas. Los viajeros interesados en <bold>tours por el desierto desde Marrakech</bold> también deben tener en cuenta que existe una diferencia importante entre las temperaturas del día y de la noche.",
+      "p2": "Para muchos viajeros internacionales, entrar en el país resulta sencillo. Los ciudadanos de numerosos países, entre ellos los de la Unión Europea, Reino Unido, Estados Unidos, Canadá y Australia, pueden visitar generalmente <bold>Marruecos sin visado</bold> para estancias turísticas de hasta 90 días. La moneda local es el <bold>dírham marroquí (MAD)</bold>. Las tarjetas son ampliamente aceptadas en hoteles, restaurantes y comercios de las principales ciudades, pero disponer de efectivo sigue siendo importante en las medinas, mercados tradicionales, pueblos de montaña y localidades pequeñas. El presupuesto de un viaje puede variar considerablemente según el tipo de alojamiento, transporte privado, riads de lujo y servicios personalizados que elijas.",
+      "p3": "<bold>Marruecos</bold> está consolidado como un importante destino turístico internacional, aunque siempre es recomendable seguir precauciones normales durante el viaje. Mantén tus pertenencias seguras en zonas concurridas, utiliza guías profesionales cuando sea necesario y reserva los viajes largos al Sáhara con operadores establecidos. El árabe y el tamazight son idiomas oficiales, el francés se utiliza ampliamente y el inglés y el español tienen cada vez más presencia en las zonas turísticas. En <bold>Luxury Morocco Destinations</bold>, nuestro equipo local ayuda a organizar transporte privado, itinerarios personalizados y asistencia durante el viaje para recorrer las ciudades, montañas, costa y desierto de Marruecos con mayor comodidad y tranquilidad."
     }
   },
   "Footer": {

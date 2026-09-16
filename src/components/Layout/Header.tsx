@@ -29,8 +29,8 @@ type NavLink = {
 const CONTACT = {
   phone: "+212 6 15683217",
   phoneHref: "tel:+212615683217",
-  email: "info@toursmarrakechdesert.com",
-  emailHref: "mailto:info@toursmarrakechdesert.com",
+  email: "info@luxurymoroccodestinations.com",
+  emailHref: "mailto:info@luxurymoroccodestinations.com",
 };
 
 const TOURS_DROPDOWN: DropdownItem[] = [
@@ -214,7 +214,7 @@ function Logo({ onClick }: { onClick?: () => void }): React.JSX.Element {
       <Image
         width={48}
         height={48}
-        src="/logoo.png"
+        src="/logo.png"
         alt="Luxury Morocco Destinations Logo"
         className="h-16 w-auto sm:h-20"
       />

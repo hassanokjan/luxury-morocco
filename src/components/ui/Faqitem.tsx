@@ -12,7 +12,7 @@ type FaqItemProps = {
 
 export default function FaqItem({question,answer,isOpen,onClick,}: FaqItemProps) {return (
 
-    <div className="overflow-hidden rounded-xl min-h-18 border border-primary bg-card ">
+    <div className="overflow-hidden rounded-xl min-h-18 border border-primary/20 bg-card ">
       <button
         type="button"
         onClick={onClick}

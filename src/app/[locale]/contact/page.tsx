@@ -48,13 +48,13 @@ const ITEMS: ContactItem[] = [
 function page() {
   return (
     <>
-      <section className="bg-background py-8 lg:py-26">
+      <section className="bg-background pt-8 lg:pt-26">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14 lg:px-8">
           <ContactForm />
           <ContactInformation ITEMS={ITEMS} />
         </div>
-        <FindUs />
       </section>
+      <FindUs />
     </>
   );
 }
