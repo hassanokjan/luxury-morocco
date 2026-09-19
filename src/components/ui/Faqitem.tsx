@@ -33,7 +33,7 @@ export default function FaqItem({question,answer,isOpen,onClick,}: FaqItemProps)
         >
           {isOpen ? <Minus className="size-4" /> : <Plus className="size-4" />}
         </span>
-        <span className="text-base font-semibold leading-6 text-heading sm:text-lg">
+        <span className="text-base font-semibold leading-6 text-text-main">
           {question}
         </span>
       </button>

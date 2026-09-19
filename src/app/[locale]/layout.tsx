@@ -7,6 +7,7 @@ import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import Header from "@/components/Layout/Header";
+import { AlternateSlugsProvider } from "@/contexts/AlternateSlugsContext";
 
 
 const cormorant = Cormorant_Garamond({
@@ -30,8 +31,7 @@ export function generateStaticParams() {
 
 
 export function generateMetadata(): Metadata {
-  const baseUrl =
-    process.env.NEXT_PUBLIC_BASE_URL ?? "https://luxurymoroccodestinations.com";
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? "https://luxurymoroccodestinations.com";
 
   return {
     metadataBase: new URL(baseUrl),
@@ -76,13 +76,15 @@ export default async function LocaleLayout({children,params,}: {children: React.
       suppressHydrationWarning
       className={`${cormorant.variable} ${manrope.variable} h-full antialiased`}
     >
+       <body className="min-h-screen flex flex-col bg-background text-foreground">
       <NextIntlClientProvider>
-        <body className="min-h-screen flex flex-col bg-background text-foreground">
-          <Header />
-          <main className="flex-1 w-full">{children}</main>
-          <Footer />
-        </body>
+        <AlternateSlugsProvider>
+            <Header />
+            <main className="flex-1 w-full">{children}</main>
+            <Footer />
+        </AlternateSlugsProvider>
       </NextIntlClientProvider>
+    </body>
     </html>
   );
 }

@@ -54,7 +54,7 @@ export default async function InstagramSection(): Promise<React.JSX.Element> {
           {photos.map((photo, index) => (
             <div
               key={photo.id}
-              className="relative aspect-4/5 overflow-hidden rounded-xl border border-border bg-card shadow-sm"
+              className="relative aspect-4/5 overflow-hidden rounded-xl border border-border bg-card shadow-sm "
             >
               <Image
                 src={photo?.src}

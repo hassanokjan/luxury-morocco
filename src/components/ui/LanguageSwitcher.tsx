@@ -1,25 +1,17 @@
 "use client";
 
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/routing";
 import { useParams } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useAlternateSlugs } from "@/contexts/AlternateSlugsContext";
+import type { Locale } from "@/i18n/routing";
+import { useState, useRef, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 
-import type { Locale } from "@/i18n/routing";
-
 const LANGUAGES = [
-  {
-    code: "en",
-    label: "English",
-    country: "gb",
-  },
-  {
-    code: "es",
-    label: "Español",
-    country: "es",
-  },
+  { code: "en", label: "English", country: "gb" },
+  { code: "es", label: "Español", country: "es" },
 ] as const;
 
 function FlagIcon({ country, alt }: { country: string; alt: string }) {
@@ -29,73 +21,77 @@ function FlagIcon({ country, alt }: { country: string; alt: string }) {
       alt={alt}
       width={20}
       height={15}
-      className="rounded-[2px] object-cover shadow-sm"
+      className="rounded-[2px] object-cover shadow-sm w-6 lg:w-8"
       unoptimized
     />
   );
 }
 
 export default function LanguageSwitcher() {
-  const locale = useLocale() as Locale;
-
+  const t = useTranslations("Header");
+  const locale = useLocale();
   const pathname = usePathname();
+  const params = useParams(); // ex: { slug: "ultimate-guide-solo-travel-morocco" } sur /blog/[slug]
+  const { alternateSlugs } = useAlternateSlugs();
   const router = useRouter();
-  const params = useParams();
-
   const [isOpen, setIsOpen] = useState(false);
-
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const currentLanguage = LANGUAGES.find(
-    (language) => language.code === locale,
-  );
+  const currentLanguage = LANGUAGES.find((lang) => lang.code === locale);
 
-  // Fermer le dropdown si on clique en dehors
+  // Ferme le menu au clic extérieur
   useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
+    const handleClickOutside = (event: MouseEvent) => {
       if (
         dropdownRef.current &&
         !dropdownRef.current.contains(event.target as Node)
       ) {
         setIsOpen(false);
       }
-    }
-
-    document.addEventListener("mousedown", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
     };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  function changeLanguage(newLocale: Locale) {
-    if (newLocale === locale) {
+  const handleChange = (newLocale: Locale) => {
+    const currentSlug = typeof params.slug === "string" ? params.slug : "";
+
+    const targetSlug = alternateSlugs?.[newLocale] ?? currentSlug;
+
+    if (pathname === "/blog/[slug]") {
+      router.replace(
+        {
+          pathname: "/blog/[slug]",
+          params: {
+            slug: targetSlug,
+          },
+        },
+        { locale: newLocale },
+      );
+
       setIsOpen(false);
       return;
     }
 
-    router.replace(
-      {
-        pathname,
-        params,
-      } as never,
-      {
-        locale: newLocale,
-      },
-    );
+   router.replace(
+     {
+       pathname,
+       params,
+     } as never,
+     { locale: newLocale },
+   );
 
     setIsOpen(false);
-  }
+  };
 
   return (
-    <div ref={dropdownRef} className="relative">
-      {/* Current language */}
+    <div className="relative" ref={dropdownRef}>
       <button
-        type="button"
-        onClick={() => setIsOpen((current) => !current)}
-        aria-label="Change language"
-        aria-expanded={isOpen}
+        onClick={() => setIsOpen(!isOpen)}
         className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold text-foreground transition-colors hover:bg-muted"
+        type="button"
+        aria-label={t("changeLanguage")}
+        aria-expanded={isOpen}
       >
         {currentLanguage && (
           <FlagIcon
@@ -103,41 +99,31 @@ export default function LanguageSwitcher() {
             alt={currentLanguage.label}
           />
         )}
-
         <span className="hidden sm:inline">
           {currentLanguage?.code.toUpperCase()}
         </span>
-
         <ChevronDown
-          className={`h-3 w-3 transition-transform ${
-            isOpen ? "rotate-180" : ""
-          }`}
+          className={`h-3 w-3 transition-transform ${isOpen ? "rotate-180" : ""}`}
         />
       </button>
 
-      {/* Languages */}
       {isOpen && (
-        <div className="absolute right-0 top-full z-50 mt-2 min-w-[180px] rounded-xl border border-border bg-card p-2 shadow-lg">
-          {LANGUAGES.map((language) => {
-            const active = language.code === locale;
-
-            return (
-              <button
-                key={language.code}
-                type="button"
-                onClick={() => changeLanguage(language.code as Locale)}
-                className={`flex w-full items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
-                  active
-                    ? "bg-primary/10 text-primary"
-                    : "text-text-secondary hover:bg-muted hover:text-foreground"
-                }`}
-              >
-                <FlagIcon country={language.country} alt={language.label} />
-
-                <span>{language.label}</span>
-              </button>
-            );
-          })}
+        <div className="absolute right-0 top-full mt-2 min-w-[180px] rounded-xl border border-border bg-card p-2 shadow-lg z-50">
+          {LANGUAGES.map((lang) => (
+            <button
+              key={lang.code}
+              type="button"
+              onClick={() => handleChange(lang.code)}
+              className={`flex w-full items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+                locale === lang.code
+                  ? "bg-primary/10 text-primary"
+                  : "text-text-secondary hover:bg-muted hover:text-foreground"
+              }`}
+            >
+              <FlagIcon country={lang.country} alt={lang.label} />
+              <span>{lang.label}</span>
+            </button>
+          ))}
         </div>
       )}
     </div>

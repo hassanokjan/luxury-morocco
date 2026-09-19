@@ -30,7 +30,7 @@ export default function FaqClient({
         <div className="text-center">
           <h2
             id="faq-title"
-            className="mt-3 font-body text-2xl font-extrabold leading-[1.15] tracking-tight text-heading sm:text-3xl lg:text-4xl"
+            className="mt-3 font-body text-2xl font-extrabold leading-[1.15] tracking-tight text-primary sm:text-3xl lg:text-4xl"
           >
             {title}
           </h2>

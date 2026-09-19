@@ -72,17 +72,16 @@ export default function ContactForm(): React.JSX.Element {
       {/* Header */}
       <div className="relative">
         <h2 className="font-heading text-3xl font-bold tracking-tight text-heading">
-          Let&apos;s Plan Your
-          <span className=" bg-gradient-to-r from-primary via-gold to-primary bg-clip-text text-transparent">
+          Your Morocco Trip Starts
+          <span className="bg-gradient-to-r from-primary via-gold to-primary bg-clip-text text-transparent">
             {" "}
-            Perfect Journey
+            With a Simple Message
           </span>
         </h2>
-
-        <p className="mt-3 font-body text-sm leading-relaxed text-text-secondary">
-          Tell us about your dream trip and our experts will craft the perfect
-          itinerary for you.
-        </p>
+          <p className="mt-3 font-body text-sm leading-relaxed text-text-secondary">
+            Share your travel ideas, and we&apos;ll help plan a Morocco journey
+            that fits you.
+          </p>
       </div>
 
       {/* Form */}

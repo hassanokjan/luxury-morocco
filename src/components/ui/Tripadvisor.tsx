@@ -38,17 +38,17 @@ export default function Tripadvisor({locale}: {locale: string}): React.JSX.Eleme
 
     const t = contenu[locale as keyof typeof contenu];
   return (
-    <section className="bg-surface-soft py-4">
+    <section className="bg-background py-4">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div className="mb-8 px-4 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary">
-              {t.subtitle}
+              {t?.subtitle}
             </span>
 
             <h2 className="mt-2 text-3xl font-semibold text-heading sm:text-4xl">
-              {t.title}
+              {t?.title}
             </h2>
           </div>
 
@@ -79,6 +79,7 @@ export default function Tripadvisor({locale}: {locale: string}): React.JSX.Eleme
                     sm:p-6
                     lg:min-w-0
                     lg:flex-1
+                    cursor-pointer
               "
             >
               {/* Stars */}

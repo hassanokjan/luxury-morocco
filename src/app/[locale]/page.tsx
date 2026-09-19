@@ -6,13 +6,15 @@ import { setRequestLocale } from "next-intl/server";
 import { routing,getPathname } from "@/i18n/routing";
 import { Metadata } from "next";
 import {notFound} from "next/navigation";
+import HomeBlogSection from "@/components/sections/Home/Bloghome";
+import {type Locale} from "@/lib/wordpress/blogs";
 
 
-export async function generateMetadata({params,}: {params: Promise<{ locale: string }>;}): Promise<Metadata> {
+export async function generateMetadata({params,}: {params: Promise<{ locale: Locale }>;}): Promise<Metadata> {
 
   const { locale } = await params;
 
-  if (locale !== "en" && locale !== "fr" && locale !== "es") {
+  if (locale !== "en" && locale !== "es") {
     notFound();
   }
 
@@ -34,24 +36,6 @@ export async function generateMetadata({params,}: {params: Promise<{ locale: str
       ogLocale: "en_US",
       imageAlt: "Luxury Morocco Destinations — Morocco tours",
     },
-
-    fr: {
-      title: "Luxury Morocco Destinations | Voyages privés au Maroc",
-      description:
-        "Préparez votre voyage privé au Maroc avec Luxury Morocco Destinations. De Marrakech et Fès au Sahara, composez un itinéraire selon vos envies.",
-      keywords: [
-        "Luxury Morocco Destinations",
-        "voyage de luxe au Maroc",
-        "circuit privé au Maroc",
-        "voyage sur mesure au Maroc",
-        "destinations au Maroc",
-        "circuit désert depuis Marrakech",
-        "séjour à Merzouga",
-      ],
-      ogLocale: "fr_FR",
-      imageAlt: "Luxury Morocco Destinations — Voyages au Maroc",
-    },
-
     es: {
       title: "Luxury Morocco Destinations | Viajes privados a Marruecos",
       description:
@@ -126,16 +110,18 @@ export async function generateMetadata({params,}: {params: Promise<{ locale: str
 }
 
 
-export default async function Home({params}: {params: {locale: string}}) {
+export default async function Home({params}: {params: {locale: Locale}}) {
+  
   const { locale } =await params;
   setRequestLocale(locale);    
 
   return (
     <>
-    <Hero />
-    <Tripadvisor locale={locale} />
-    <InstagramSection />
-    <Faq locale={locale} />
+      <Hero />
+      <Tripadvisor locale={locale} />
+      <InstagramSection />
+      <HomeBlogSection locale={locale} />
+      <Faq locale={locale} />
     </>
   );
 }
