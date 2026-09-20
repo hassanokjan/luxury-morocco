@@ -53,36 +53,42 @@ export default function LanguageSwitcher() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const handleChange = (newLocale: Locale) => {
-    const currentSlug = typeof params.slug === "string" ? params.slug : "";
+    const handleChange = (newLocale: Locale) => {
+      if (newLocale === locale) {
+        setIsOpen(false);
+        return;
+      }
 
-    const targetSlug = alternateSlugs?.[newLocale] ?? currentSlug;
+      if (pathname === "/blog/[slug]") {
+        const currentSlug = typeof params.slug === "string" ? params.slug : "";
 
-    if (pathname === "/blog/[slug]") {
-      router.replace(
-        {
-          pathname: "/blog/[slug]",
-          params: {
-            slug: targetSlug,
+        const targetSlug = alternateSlugs?.[newLocale];
+
+        // Ne naviguer que si les traductions correspondent à cet article.
+        if (
+          !currentSlug ||
+          !targetSlug ||
+          alternateSlugs?.[locale as Locale] !== currentSlug
+        ) {
+          return;
+        }
+
+        router.replace(
+          {
+            pathname: "/blog/[slug]",
+            params: { slug: targetSlug },
           },
-        },
-        { locale: newLocale },
-      );
+          { locale: newLocale },
+        );
+
+        setIsOpen(false);
+        return;
+      }
+
+      router.replace({ pathname, params } as never, { locale: newLocale });
 
       setIsOpen(false);
-      return;
-    }
-
-   router.replace(
-     {
-       pathname,
-       params,
-     } as never,
-     { locale: newLocale },
-   );
-
-    setIsOpen(false);
-  };
+    };
 
   return (
     <div className="relative" ref={dropdownRef}>

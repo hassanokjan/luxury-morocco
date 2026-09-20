@@ -57,6 +57,7 @@ export async function generateMetadata({params,}: BlogDetailPageProps): Promise<
      };
    }
 
+   
   // URL canonique de l'article actuel
   const canonical = getPathname({
     locale,
