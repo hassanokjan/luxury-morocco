@@ -77,6 +77,13 @@ const TOURS_DROPDOWN: DropdownItem[] = [
     label: "fromErrachidia",
   },
   {
+    href: {
+      pathname: "/tours/from/[city]",
+      params: { city: "Ouarzazate" },
+    },
+    label: "fromOuarzazate",
+  },
+  {
     href: "/tours",
     label: "allTours",
   },
