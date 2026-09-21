@@ -1,17 +1,32 @@
 "use client";
 
 import { useLocale, useTranslations } from "next-intl";
+
 import { usePathname, useRouter } from "@/i18n/routing";
+
 import { useParams } from "next/navigation";
+
 import { useAlternateSlugs } from "@/contexts/AlternateSlugsContext";
+
 import type { Locale } from "@/i18n/routing";
-import { useState, useRef, useEffect } from "react";
-import { ChevronDown } from "lucide-react";
+
+import { useEffect, useRef, useState, useTransition } from "react";
+
+import { ChevronDown, Loader2 } from "lucide-react";
+
 import Image from "next/image";
 
 const LANGUAGES = [
-  { code: "en", label: "English", country: "gb" },
-  { code: "es", label: "Español", country: "es" },
+  {
+    code: "en",
+    label: "English",
+    country: "gb",
+  },
+  {
+    code: "es",
+    label: "Español",
+    country: "es",
+  },
 ] as const;
 
 function FlagIcon({ country, alt }: { country: string; alt: string }) {
@@ -19,9 +34,9 @@ function FlagIcon({ country, alt }: { country: string; alt: string }) {
     <Image
       src={`https://flagcdn.com/w80/${country}.png`}
       alt={alt}
-      width={20}
-      height={15}
-      className="rounded-[2px] object-cover shadow-sm w-6 lg:w-8"
+      width={32}
+      height={24}
+      className="h-auto w-6 rounded-[2px] object-cover shadow-sm lg:w-8"
       unoptimized
     />
   );
@@ -29,17 +44,42 @@ function FlagIcon({ country, alt }: { country: string; alt: string }) {
 
 export default function LanguageSwitcher() {
   const t = useTranslations("Header");
-  const locale = useLocale();
+
+  const locale = useLocale() as Locale;
+
   const pathname = usePathname();
-  const params = useParams(); // ex: { slug: "ultimate-guide-solo-travel-morocco" } sur /blog/[slug]
-  const { alternateSlugs } = useAlternateSlugs();
+
+  const params = useParams();
+
   const router = useRouter();
+
+  const { alternateSlugs } = useAlternateSlugs();
+
   const [isOpen, setIsOpen] = useState(false);
+
+  const [isPending, startTransition] = useTransition();
+
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const currentLanguage = LANGUAGES.find((lang) => lang.code === locale);
 
-  // Ferme le menu au clic extérieur
+  /*
+   * Current dynamic slug
+   */
+  const currentSlug = typeof params.slug === "string" ? params.slug : "";
+
+  /*
+   * Routes where the slug changes
+   * according to the language.
+   *
+   * Blog now.
+   * Tours ready for later.
+   */
+  const isTranslatedDetailPage = pathname === "/blog/[slug]" || pathname === "/tours/[slug]";
+
+  /*
+   * Close dropdown when clicking outside
+   */
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -49,55 +89,117 @@ export default function LanguageSwitcher() {
         setIsOpen(false);
       }
     };
+
     document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
   }, []);
 
-    const handleChange = (newLocale: Locale) => {
-      if (newLocale === locale) {
-        setIsOpen(false);
+  /*
+   * Language change
+   */
+  const handleChange = (newLocale: Locale) => {
+    /*
+     * Already using this language
+     */
+    if (newLocale === locale) {
+      setIsOpen(false);
+      return;
+    }
+
+    /*
+     * Close immediately.
+     *
+     * Gives direct feedback to the user
+     * even while the next page loads.
+     */
+    setIsOpen(false);
+
+    /*
+     * BLOG / TOUR DETAIL
+     *
+     * These routes can have a different
+     * slug for every language.
+     */
+    if (isTranslatedDetailPage) {
+      const targetSlug = alternateSlugs?.[newLocale];
+
+      const registeredCurrentSlug = alternateSlugs?.[locale];
+
+      /*
+       * Protection against stale data.
+       *
+       * Never navigate to the translation
+       * of another article/tour.
+       */
+      if (
+        !currentSlug ||
+        !targetSlug ||
+        registeredCurrentSlug !== currentSlug
+      ) {
         return;
       }
 
-      if (pathname === "/blog/[slug]") {
-        const currentSlug = typeof params.slug === "string" ? params.slug : "";
-
-        const targetSlug = alternateSlugs?.[newLocale];
-
-        // Ne naviguer que si les traductions correspondent à cet article.
-        if (
-          !currentSlug ||
-          !targetSlug ||
-          alternateSlugs?.[locale as Locale] !== currentSlug
-        ) {
-          return;
-        }
-
+      startTransition(() => {
         router.replace(
           {
-            pathname: "/blog/[slug]",
-            params: { slug: targetSlug },
+            pathname,
+            params: {
+              slug: targetSlug,
+            },
+          } as never,
+          {
+            locale: newLocale,
           },
-          { locale: newLocale },
         );
+      });
 
-        setIsOpen(false);
-        return;
-      }
+      return;
+    }
 
-      router.replace({ pathname, params } as never, { locale: newLocale });
-
-      setIsOpen(false);
-    };
+    /*
+     * STATIC / NORMAL ROUTES
+     *
+     * Examples:
+     * /
+     * /about
+     * /contact
+     * /blog
+     * /tours
+     */
+    startTransition(() => {
+      router.replace(
+        {
+          pathname,
+          params,
+        } as never,
+        {
+          locale: newLocale,
+        },
+      );
+    });
+  };
 
   return (
     <div className="relative" ref={dropdownRef}>
+      {/* CURRENT LANGUAGE */}
       <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold text-foreground transition-colors hover:bg-muted"
         type="button"
+        onClick={() => setIsOpen((previous) => !previous)}
+        disabled={isPending}
         aria-label={t("changeLanguage")}
         aria-expanded={isOpen}
+        className="
+          flex items-center gap-2
+          rounded-lg px-3 py-2
+          text-sm font-semibold
+          text-foreground
+          transition-colors
+          hover:bg-muted
+          disabled:cursor-wait
+        "
       >
         {currentLanguage && (
           <FlagIcon
@@ -105,31 +207,64 @@ export default function LanguageSwitcher() {
             alt={currentLanguage.label}
           />
         )}
+
         <span className="hidden sm:inline">
           {currentLanguage?.code.toUpperCase()}
         </span>
-        <ChevronDown
-          className={`h-3 w-3 transition-transform ${isOpen ? "rotate-180" : ""}`}
-        />
+
+        {isPending ? (
+          <Loader2 className="h-3.5 w-3.5 animate-spin" />
+        ) : (
+          <ChevronDown
+            className={`h-3 w-3 transition-transform ${
+              isOpen ? "rotate-180" : ""
+            }`}
+          />
+        )}
       </button>
 
+      {/* DROPDOWN */}
       {isOpen && (
-        <div className="absolute right-0 top-full mt-2 min-w-[180px] rounded-xl border border-border bg-card p-2 shadow-lg z-50">
-          {LANGUAGES.map((lang) => (
-            <button
-              key={lang.code}
-              type="button"
-              onClick={() => handleChange(lang.code)}
-              className={`flex w-full items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
-                locale === lang.code
-                  ? "bg-primary/10 text-primary"
-                  : "text-text-secondary hover:bg-muted hover:text-foreground"
-              }`}
-            >
-              <FlagIcon country={lang.country} alt={lang.label} />
-              <span>{lang.label}</span>
-            </button>
-          ))}
+        <div
+          className="
+            absolute right-0 top-full z-50
+            mt-2 min-w-[180px]
+            rounded-xl border border-border
+            bg-card p-2 shadow-lg
+          "
+        >
+          {LANGUAGES.map((lang) => {
+            const isCurrent = locale === lang.code;
+
+            return (
+              <button
+                key={lang.code}
+                type="button"
+                disabled={isPending || isCurrent}
+                onClick={() => handleChange(lang.code)}
+                className={`
+                    flex w-full
+                    items-center gap-3
+                    rounded-lg
+                    px-3 py-2
+                    text-sm font-medium
+                    transition-colors
+
+                    ${
+                      isCurrent
+                        ? "bg-primary/10 text-primary"
+                        : "text-text-secondary hover:bg-muted hover:text-foreground"
+                    }
+
+                    disabled:cursor-default
+                  `}
+              >
+                <FlagIcon country={lang.country} alt={lang.label} />
+
+                <span>{lang.label}</span>
+              </button>
+            );
+          })}
         </div>
       )}
     </div>
