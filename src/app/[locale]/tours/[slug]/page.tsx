@@ -3,7 +3,7 @@ import React from 'react'
 function page() {
   return (
     <div>
-       tour details
+       tour details  well done
     </div>
   )
 }
