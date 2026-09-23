@@ -93,6 +93,7 @@ interface WordPressTour {
     tour_image_3?: AcfImage;
 
     translation?: number | false | null;
+    related_tours?: number[] | number | false | null;
   };
 
   _embedded?: {
@@ -143,6 +144,7 @@ export interface TourDetail {
   translationId: number | null;
   date: string;
   modified: string;
+  relatedTourIds: number[];
 }
 
 interface WordPressResult<T> {
@@ -442,6 +444,12 @@ export async function getTourDetail(
       .map((item) => item.trim())
       .filter(Boolean) ?? [];
 
+  const relatedTourIds = Array.isArray(post.acf?.related_tours)
+    ? post.acf.related_tours
+    : typeof post.acf?.related_tours === "number"
+      ? [post.acf.related_tours]
+      : [];
+
   return {
     id: String(post.id),
     slug: post.slug,
@@ -472,6 +480,7 @@ export async function getTourDetail(
     translationId:
       typeof post.acf?.translation === "number" ? post.acf.translation : null,
     date: post.date,
+    relatedTourIds,
     modified: post.modified ?? post.date,
   };
 }
@@ -556,4 +565,29 @@ export async function getAllTourSlugs(locale: Locale): Promise<string[]> {
   }
 
   return result.posts.map((post) => post.slug).filter(Boolean);
+}
+
+// get relative tours by id
+
+export async function getToursByIds(
+  locale: Locale,
+  ids: number[],
+): Promise<TourCard[]> {
+  const safeIds = [
+    ...new Set(ids.filter((id) => Number.isInteger(id) && id > 0)),
+  ];
+
+  if (!safeIds.length) {
+    return [];
+  }
+
+  const result = await fetchTours<WordPressTour>(locale, {
+    include: safeIds.join(","),
+    per_page: String(Math.min(safeIds.length, 100)),
+    orderby: "include",
+    _embed: "wp:featuredmedia,wp:term",
+    _fields: "id,slug,title,acf.description,_links,_embedded",
+  });
+
+  return result?.posts.map(toTourCard) ?? [];
 }
