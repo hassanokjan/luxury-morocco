@@ -47,11 +47,9 @@ export default function FaqItem({question,answer,isOpen,onClick,}: FaqItemProps)
       >
         <div className="min-h-0 overflow-hidden">
           <div className="px-6 pb-6 pl-[52px]">
-            <p className="text-sm leading-7 text-text-secondary sm:text-base">
               <ReactMarkdown rehypePlugins={[rehypeRaw, rehypeSanitize]}>
                  {answer}
                </ReactMarkdown>
-            </p>
           </div>
         </div>
       </div>

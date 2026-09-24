@@ -176,7 +176,10 @@ async function fetchTours<T>(
     });
 
     if (!response.ok) {
-      console.error("WordPress tours:", response.status);
+      if (response.status >= 500) {
+        throw new Error(`WordPress tours error: ${response.status}`);
+      }
+
       return null;
     }
 
