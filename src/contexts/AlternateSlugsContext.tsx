@@ -2,9 +2,9 @@
 
 import {createContext,useContext,useState,useCallback,ReactNode,} from "react";
 
-import type { Locale } from "@/lib/wordpress/blogs";
+import type { Locale } from "@/i18n/routing";
 
-type AlternateSlugsMap = Record<Locale, string> | null;
+type AlternateSlugsMap = Partial<Record<Locale, string>> | null;
 
 interface AlternateSlugsContextValue {
   alternateSlugs: AlternateSlugsMap;

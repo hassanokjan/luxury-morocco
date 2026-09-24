@@ -27,8 +27,8 @@ type NavLink = {
 };
 
 const CONTACT = {
-  phone: "+212 6 15683217",
-  phoneHref: "tel:+212615683217",
+  phone: "+212667182357",
+  phoneHref: "tel:+212667182357",
   email: "info@luxurymoroccodestinations.com",
   emailHref: "mailto:info@luxurymoroccodestinations.com",
 };
@@ -411,7 +411,7 @@ function MobileNav({
         })}
       </ul>
 
-      <div className="border-t border-border px-4 py-5">
+      <div className="border-t border-border px-4 py-5 pb-26">
         <div className="mb-5 flex flex-col gap-3">
           <a
             href={CONTACT.phoneHref}
@@ -464,7 +464,9 @@ function MobileNav({
           </a>
         </div>
 
-        <LanguageSwitcher />
+        <div className="sticky top-0 z-20 border-b border-border bg-background/95 px-4 py-3 backdrop-blur-md">
+          <LanguageSwitcher />
+        </div>
       </div>
     </nav>
   );

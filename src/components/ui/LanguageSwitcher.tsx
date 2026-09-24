@@ -68,15 +68,13 @@ export default function LanguageSwitcher() {
    */
   const currentSlug = typeof params.slug === "string" ? params.slug : "";
 
-  /*
-   * Routes where the slug changes
-   * according to the language.
-   *
-   * Blog now.
-   * Tours ready for later.
-   */
-  const isTranslatedDetailPage = pathname === "/blog/[slug]" || pathname === "/tours/[slug]";
+  const isTourDetail = Boolean(currentSlug) && (pathname === "/tours/[slug]" || pathname.startsWith("/tours/"));
 
+  const isBlogDetail = Boolean(currentSlug) && (pathname === "/blog/[slug]" || pathname.startsWith("/blog/"));
+
+  const isTranslatedDetailPage = isTourDetail || isBlogDetail;
+
+  
   /*
    * Close dropdown when clicking outside
    */

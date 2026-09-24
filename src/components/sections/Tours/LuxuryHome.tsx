@@ -12,14 +12,14 @@ const CONTENT = {
   en: {
     title: "Luxury Morocco Tours",
     description:
-      "Cross the High Atlas, spend a night beside the Sahara dunes, walk through historic medinas and experience Morocco through private journeys shaped around real places and local moments.",
+      "Explore iconic Morocco destinations through private tours, from the Atlas Mountains and historic medinas to the Sahara desert.",
     link: "View all luxury tours",
   },
 
   es: {
     title: "Tours de lujo por Marruecos",
     description:
-      "Cruza el Alto Atlas, pasa una noche junto a las dunas del Sahara, recorre antiguas medinas y vive Marruecos a través de viajes privados centrados en lugares auténticos y momentos locales.",
+      "Conoce los mejores destinos de Marruecos en tours privados, desde el Atlas y las medinas históricas hasta el desierto del Sahara.",
     link: "Ver todos los tours de lujo",
   },
 };
@@ -41,15 +41,15 @@ export default async function LuxuryHome({ locale }: LuxuryHomeProps) {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* HEADER */}
         <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <div className="max-w-2xl">
+          <div className="max-w-4xl">
             <h2
               id="luxury-tours-heading"
-              className="mt-3 text-3xl font-semibold leading-tight tracking-tight text-primary sm:text-4xl lg:text-5xl"
+              className="mt-3 text-3xl font-semibold leading-tight tracking-tight text-primary sm:text-4xl"
             >
               {t.title}
             </h2>
 
-            <p className="mt-4 max-w-xl text-[15px] leading-7 text-text-secondary sm:text-base">
+            <p className="mt-4 max-w-xl text-[12px] leading-7 text-text-secondary sm:text-base">
               {t.description}
             </p>
           </div>
