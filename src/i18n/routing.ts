@@ -50,26 +50,23 @@ export const routing = defineRouting({
 
     "/blog/[slug]": {
       en: "/blog/[slug]",
-      fr: "/blog/[slug]",
       es: "/blog/[slug]",
     },
 
     // About
     "/about": {
       en: "/about",
-      fr: "/a-propos",
       es: "/sobre-nosotros",
     },
+
     "/about/morocco_tourist": {
       en: "/about/morocco-tourist",
-      fr: "/a-propos/tourisme-maroc",
       es: "/sobre-nosotros/turismo-marruecos",
     },
 
     // Contact
     "/contact": {
       en: "/contact",
-      fr: "/contact",
       es: "/contacto",
     },
   },

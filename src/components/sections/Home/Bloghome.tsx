@@ -29,22 +29,6 @@ const SECTION_TEXTS: Record<Locale,
 };
 
 
-function formatBlogDate(dateString: string, locale: Locale): string {
-  if (!dateString) return "";
-
-  const dateOnly = dateString.split("T")[0];
-  const date = new Date(`${dateOnly}T12:00:00Z`);
-
-  if (Number.isNaN(date.getTime())) {
-    return "";
-  }
-
-  return new Intl.DateTimeFormat(locale === "es" ? "es-ES" : "en-US", {
-    month: "short",
-    day: "numeric",
-    timeZone: "UTC",
-  }).format(date);
-}
 
 export default async function HomeBlogSection({locale,}: HomeBlogSectionProps): Promise<React.JSX.Element | null> {
 
@@ -114,12 +98,7 @@ export default async function HomeBlogSection({locale,}: HomeBlogSectionProps): 
               "
             >
               <article
-                className="
-                  flex h-full flex-col
-                  rounded-xl border border-border/70 bg-card p-3 shadow-sm
-                  sm:rounded-none sm:border-0 sm:bg-transparent sm:p-0 sm:shadow-none
-                "
-              >
+                className=" flex h-full flex-col rounded-xl border border-border/70 bg-card p-3 shadow-sm sm:rounded-none sm:border-0 sm:bg-transparent sm:p-0 sm:shadow-none">
                 {/* IMAGE */}
                 <div
                   className="
@@ -139,26 +118,6 @@ export default async function HomeBlogSection({locale,}: HomeBlogSectionProps): 
                     "
                     className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.06]"
                   />
-
-                  {/* DATE */}
-                  <div className="absolute left-3 top-3">
-                    <div className="flex items-center gap-1.5 rounded-full border border-white/20 bg-black/40 px-3 py-1.5 text-[11px] font-semibold tracking-wide text-white backdrop-blur-md">
-                      <svg
-                        className="h-3.5 w-3.5 text-white/90"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth="1.8"
-                        aria-hidden="true"
-                      >
-                        <circle cx="12" cy="12" r="9.5" />
-
-                        <polyline points="12 6.5 12 12 15.5 14" />
-                      </svg>
-
-                      <span>{formatBlogDate(card.date, locale)}</span>
-                    </div>
-                  </div>
 
                   {/* ARROW */}
                   <div

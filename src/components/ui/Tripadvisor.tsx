@@ -58,7 +58,7 @@ export default function Tripadvisor({locale}: {locale: string}): React.JSX.Eleme
             rel="noopener noreferrer"
             className="hidden items-center justify-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-bold text-primary-foreground transition hover:bg-primary-hover sm:flex"
           >
-            {t.button}
+            {t?.button}
             <ExternalLink className="h-4 w-4" />
           </a>
         </div>

@@ -276,12 +276,8 @@ function DesktopNav({ pathname }: { pathname: string }): React.JSX.Element {
             key={link.href}
             href={link.href}
             aria-current={isActive ? "page" : undefined}
-            className={`relative rounded-lg px-3.5 py-2 text-[16px] font-semibold tracking-tight transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
-              isActive
-                ? "text-primary"
-                : "text-text-main hover:bg-muted hover:text-primary"
-            }`}
-          >
+            className={`relative font-semibold rounded-lg px-3.5 py-2 text-[16px] tracking-tight transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
+              isActive ? "text-primary" : "text-text-main hover:bg-muted hover:text-primary" }`}>
             {t(link.label)}
           </Link>
         );

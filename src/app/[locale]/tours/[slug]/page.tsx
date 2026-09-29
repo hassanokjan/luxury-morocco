@@ -177,6 +177,9 @@ type PageProps = {
   }>;
 };
 
+
+
+
 export default async function Page({ params }: PageProps) {
   const { locale, slug } = await params;
 
@@ -189,11 +192,11 @@ export default async function Page({ params }: PageProps) {
 
  const [alternateSlugs, relatedTours] = await Promise.all([
    getAlternateTourSlugs(locale, tour.slug, tour.translationId),
-
    getToursByIds(locale, tour.relatedTourIds),
  ]);
 
-  return (
+
+ return (
     <>
       <RegisterAlternateSlugs slugs={alternateSlugs} />
       <section className="min-h-screen bg-background">

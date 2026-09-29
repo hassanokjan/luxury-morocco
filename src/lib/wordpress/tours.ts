@@ -4,7 +4,7 @@ import type { Locale } from "@/i18n/routing";
 export type { Locale } from "@/i18n/routing";
 const API_URL = process.env.NEXT_PUBLIC_API_URL?.replace(/\/+$/, "");
 
-const REVALIDATE = 86400;
+const REVALIDATE = 3600;
 
 const LANGUAGE_IDS: Record<Locale, number> = {
   en: 14,
@@ -92,7 +92,7 @@ interface WordPressTour {
     tour_image_2?: AcfImage;
     tour_image_3?: AcfImage;
 
-    translation?: number | false | null;
+    translation?: number | number[] | false | null;
     related_tours?: number[] | number | false | null;
   };
 
@@ -391,25 +391,9 @@ export async function getLuxuryTourCards(
   return result?.posts.map(toTourCard) ?? [];
 }
 
-/*
-|--------------------------------------------------------------------------
-| 3. TOUR DETAIL
-|--------------------------------------------------------------------------
-|
-| Exemple:
-|
-| getTourDetail(
-|   "en",
-|   "3-days-tour-from-marrakech-to-merzouga-desert",
-| )
-|
-|--------------------------------------------------------------------------
-*/
 
-export async function getTourDetail(
-  locale: Locale,
-  slug: string,
-): Promise<TourDetail | null> {
+export async function getTourDetail(locale: Locale,slug: string,): Promise<TourDetail | null> {
+
   const cleanSlug = slug;
 
   if (!cleanSlug) {
@@ -432,26 +416,14 @@ export async function getTourDetail(
   const featured = getFeaturedImage(post);
   const departure = getDeparture(post);
 
-  /*
-   * Les deux images sont récupérées
-   * en parallèle.
-   */
   const [image2, image3] = await Promise.all([
     resolveImage(post.acf?.tour_image_2),
     resolveImage(post.acf?.tour_image_3),
   ]);
 
-  const highlights =
-    post.acf?.highlights
-      ?.split(",")
-      .map((item) => item.trim())
-      .filter(Boolean) ?? [];
+  const highlights = post.acf?.highlights ?.split(",").map((item) => item.trim()).filter(Boolean) ?? [];
 
-  const relatedTourIds = Array.isArray(post.acf?.related_tours)
-    ? post.acf.related_tours
-    : typeof post.acf?.related_tours === "number"
-      ? [post.acf.related_tours]
-      : [];
+  const relatedTourIds = Array.isArray(post.acf?.related_tours) ? post.acf.related_tours : typeof post.acf?.related_tours === "number" ? [post.acf.related_tours] : [];
 
   return {
     id: String(post.id),
@@ -480,8 +452,7 @@ export async function getTourDetail(
     seoTitle: post.acf?.seo_title || title,
     seoDescription: post.acf?.seo_description || post.acf?.description || "",
     keywords: post.acf?.keywords ?? "",
-    translationId:
-      typeof post.acf?.translation === "number" ? post.acf.translation : null,
+    translationId: Array.isArray(post.acf?.translation) ? (post.acf.translation[0] ?? null) : typeof post.acf?.translation === "number" ? post.acf.translation : null,
     date: post.date,
     relatedTourIds,
     modified: post.modified ?? post.date,

@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { CalendarDays } from "lucide-react";
 import { Link } from "@/i18n/routing";
 import type { BlogCard, Locale } from "@/lib/wordpress/blogs";
 
@@ -9,18 +8,7 @@ type BlogcartProps = {
 };
 
 export default function Blogcart({ card, locale }: BlogcartProps) {
-  const dateOnly = card.date.split("T")[0];
-  const date = new Date(`${dateOnly}T12:00:00Z`);
-
-  const formattedDate = Number.isNaN(date.getTime())
-    ? ""
-    : new Intl.DateTimeFormat(locale === "es" ? "es-ES" : "en-US", {
-        day: "numeric",
-        month: "short",
-        year: "numeric",
-        timeZone: "UTC",
-      }).format(date);
-
+  
   const keywords = (card.keywords ?? []).split(',').map((keyword) => keyword.trim()).filter(Boolean);
 
   return (
@@ -52,18 +40,6 @@ export default function Blogcart({ card, locale }: BlogcartProps) {
 
         {/* CONTENU */}
         <div className="min-w-0 py-1">
-          {/* DATE */}
-          {formattedDate && (
-            <div className="mb-3 flex items-center gap-2 text-sm text-text-secondary">
-              <CalendarDays
-                aria-hidden="true"
-                className="size-4 shrink-0 text-primary"
-                strokeWidth={1.7}
-              />
-
-              <time dateTime={dateOnly}>{formattedDate}</time>
-            </div>
-          )}
 
           {/* TITRE */}
           <h2 className="line-clamp-3 font-heading text-3xl font-semibold leading-[1.15] tracking-tight text-heading transition-colors duration-200 group-hover:text-primary lg:text-4xl">
