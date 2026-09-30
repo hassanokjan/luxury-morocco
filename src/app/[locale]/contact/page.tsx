@@ -42,14 +42,17 @@ const ITEMS: ContactItem[] = [
   },
 ];
 
+type PageProps = {
+  params: Promise<{
+    locale: Locale;
+  }>;
+};
 
 
 
-
-async function page({ params }: { params: { locale: Locale } }) {
-
+async function page({ params }: PageProps) {
   const { locale } = await params;
-  
+
   return (
     <>
       <ContactHero numero={WHATSAPP_NUMBER} locale={locale} />

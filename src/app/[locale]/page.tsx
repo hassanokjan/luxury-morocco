@@ -111,10 +111,10 @@ export async function generateMetadata({params,}: {params: Promise<{ locale: Loc
 }
 
 
-export default async function Home({params}: {params: {locale: Locale}}) {
+export default async function Home({params,}: {params: Promise<{ locale: Locale }>;}) {
   
-  const { locale } =await params;
-  setRequestLocale(locale);    
+  const { locale } = await params;
+  setRequestLocale(locale);
 
   return (
     <>
