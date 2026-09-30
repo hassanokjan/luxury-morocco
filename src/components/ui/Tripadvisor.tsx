@@ -103,7 +103,7 @@ export default function Tripadvisor({locale}: {locale: string}): React.JSX.Eleme
                   <p className="font-semibold text-heading">{review.name}</p>
 
                   <p className="mt-1 text-xs font-medium text-text-muted">
-                    {t.button}
+                    {t?.button}
                   </p>
                 </div>
 

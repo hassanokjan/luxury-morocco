@@ -1,10 +1,11 @@
 import ContactForm from '@/components/sections/Contact/ContactForms';
 import ContactInformation from '@/components/sections/Contact/ContactInformation';
-import React from 'react'
 import { Clock, MapPin, Phone, Mail } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { ContactItem} from "@/type/contact";
 import FindUs from '@/components/sections/Contact/FindUs';
+import ContactHero from '@/components/sections/Contact/ContactHero';
+import { type Locale } from "@/i18n/routing";
 
 const WHATSAPP_NUMBER = "212667182357";
 
@@ -45,9 +46,13 @@ const ITEMS: ContactItem[] = [
 
 
 
-function page() {
+async function page({ params }: { params: { locale: Locale } }) {
+
+  const { locale } = await params;
+  
   return (
     <>
+      <ContactHero numero={WHATSAPP_NUMBER} locale={locale} />
       <section className="bg-background pt-8 lg:pt-26">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14 lg:px-8">
           <ContactForm />
