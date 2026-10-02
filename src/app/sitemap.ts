@@ -3,7 +3,10 @@ import type { MetadataRoute } from "next";
 import { getPathname, type Locale } from "@/i18n/routing";
 
 import { getAllBlogSlugs } from "@/lib/wordpress/blogs";
+
 import { getAllTourSlugs } from "@/lib/wordpress/tours";
+
+import { getAllDayTripSlugs } from "@/lib/wordpress/day-trips";
 
 const BASE_URL = "https://luxurymoroccodestinations.com";
 
@@ -50,9 +53,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
       sitemap.push({
         url: absoluteUrl(url),
+
         lastModified: new Date(),
+
         changeFrequency: pathname === "/" ? "daily" : "weekly",
-        priority: pathname === "/" ? 1 : pathname === "/tours" ? 0.9 : 0.8,
+
+        priority:
+          pathname === "/"
+            ? 1
+            : pathname === "/tours"
+              ? 0.9
+              : pathname === "/day-trips"
+                ? 0.9
+                : 0.8,
       });
     }
   }
@@ -64,8 +77,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     for (const city of departureCities) {
       const url = getPathname({
         locale,
+
         href: {
           pathname: "/tours/from/[city]",
+
           params: {
             city,
           },
@@ -74,8 +89,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
       sitemap.push({
         url: absoluteUrl(url),
+
         lastModified: new Date(),
+
         changeFrequency: "weekly",
+
         priority: 0.8,
       });
     }
@@ -87,6 +105,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const blogResults = await Promise.all(
     locales.map(async (locale) => ({
       locale,
+
       slugs: await getAllBlogSlugs(locale),
     })),
   );
@@ -95,8 +114,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     for (const slug of slugs) {
       const url = getPathname({
         locale,
+
         href: {
           pathname: "/blog/[slug]",
+
           params: {
             slug,
           },
@@ -105,8 +126,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
       sitemap.push({
         url: absoluteUrl(url),
+
         lastModified: new Date(),
+
         changeFrequency: "monthly",
+
         priority: 0.7,
       });
     }
@@ -118,6 +142,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const tourResults = await Promise.all(
     locales.map(async (locale) => ({
       locale,
+
       slugs: await getAllTourSlugs(locale),
     })),
   );
@@ -126,8 +151,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     for (const slug of slugs) {
       const url = getPathname({
         locale,
+
         href: {
           pathname: "/tours/[slug]",
+
           params: {
             slug,
           },
@@ -136,8 +163,48 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
       sitemap.push({
         url: absoluteUrl(url),
+
         lastModified: new Date(),
+
         changeFrequency: "weekly",
+
+        priority: 0.9,
+      });
+    }
+  }
+
+  /*
+   * DAY TRIP DETAILS
+   */
+  const dayTripResults = await Promise.all(
+    locales.map(async (locale) => ({
+      locale,
+
+      slugs: await getAllDayTripSlugs(locale),
+    })),
+  );
+
+  for (const { locale, slugs } of dayTripResults) {
+    for (const slug of slugs) {
+      const url = getPathname({
+        locale,
+
+        href: {
+          pathname: "/day-trips/[slug]",
+
+          params: {
+            slug,
+          },
+        },
+      });
+
+      sitemap.push({
+        url: absoluteUrl(url),
+
+        lastModified: new Date(),
+
+        changeFrequency: "weekly",
+
         priority: 0.9,
       });
     }
