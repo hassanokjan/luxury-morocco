@@ -9,6 +9,7 @@ import {notFound} from "next/navigation";
 import HomeBlogSection from "@/components/sections/Home/Bloghome";
 import {type Locale} from "@/lib/wordpress/blogs";
 import LuxuryHome from "@/components/sections/Tours/LuxuryHome";
+import HomeDayTrips from "@/components/sections/Home/HomeDayTrips";
 
 
 export async function generateMetadata({params,}: {params: Promise<{ locale: Locale }>;}): Promise<Metadata> {
@@ -121,6 +122,7 @@ export default async function Home({params,}: {params: Promise<{ locale: Locale 
       <Hero />
       <Tripadvisor locale={locale} />
       <LuxuryHome locale={locale} />
+      <HomeDayTrips locale={locale} />
       <InstagramSection />
       <HomeBlogSection locale={locale} />
       <Faq locale={locale} />

@@ -72,12 +72,10 @@ export default function LanguageSwitcher() {
 
   const isBlogDetail = Boolean(currentSlug) && (pathname === "/blog/[slug]" || pathname.startsWith("/blog/"));
 
-  const isTranslatedDetailPage = isTourDetail || isBlogDetail;
+  const isDayTripDetail = Boolean(currentSlug) && (pathname === "/day-trips/[slug]" || pathname.startsWith("/day-trips/"));
 
-  
-  /*
-   * Close dropdown when clicking outside
-   */
+  const isTranslatedDetailPage = isTourDetail || isBlogDetail || isDayTripDetail;
+
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -89,7 +87,6 @@ export default function LanguageSwitcher() {
     };
 
     document.addEventListener("mousedown", handleClickOutside);
-
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };

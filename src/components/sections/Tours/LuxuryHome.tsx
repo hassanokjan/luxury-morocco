@@ -58,27 +58,29 @@ export default async function LuxuryHome({ locale }: LuxuryHomeProps) {
             href="/tours"
             locale={locale}
             className="
-              group inline-flex w-fit items-center gap-2
-              text-sm font-semibold text-heading
-              transition-colors hover:text-primary
-            "
+    group inline-flex w-fit items-center gap-2
+    rounded-full
+    bg-primary
+    px-5 py-3
+    text-sm font-semibold
+    text-white
+    shadow-sm
+    transition-all duration-300
+    hover:-translate-y-0.5
+    hover:bg-primary/90
+    hover:shadow-md
+  "
           >
             {t.link}
 
-            <span
-              aria-hidden="true"
+            <ArrowUpRight
               className="
-                flex size-9 items-center justify-center
-                rounded-full border border-border
-                bg-card
-                transition-all duration-300
-                group-hover:border-primary
-                group-hover:bg-primary
-                group-hover:text-primary-foreground
-              "
-            >
-              <ArrowUpRight className="size-4" />
-            </span>
+      size-4
+      transition-transform duration-300
+      group-hover:-translate-y-0.5
+      group-hover:translate-x-0.5
+    "
+            />
           </Link>
         </div>
 
