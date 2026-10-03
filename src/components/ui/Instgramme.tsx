@@ -4,7 +4,6 @@ import React from "react";
 
 import photo1 from "@/../public/personnel/hassan1.jpeg";
 import photo3 from "@/../public/personnel/hassan6.jpeg";
-import photo2 from "@/../public/personnel/hassan4.jpeg";
 import photo4 from "@/../public/personnel/hassan5.jpeg";
 
 
@@ -22,16 +21,11 @@ const photos: Photo[] = [
   },
   {
     id: 2,
-    src: photo2,
-    alt: "Local Moroccan guide overlooking a palm oasis during a private Morocco tour",
-  },
-  {
-    id: 3,
     src: photo3,
     alt: "Travelers enjoying a guided Morocco experience near a palm valley and traditional village",
   },
   {
-    id: 4,
+    id: 3,
     src: photo4,
     alt: "Guests sharing traditional Moroccan tea with local hosts during a desert experience",
   },
@@ -50,8 +44,8 @@ export default async function InstagramSection(): Promise<React.JSX.Element> {
           Follow Luxury Morocco Destinations for a closer look at Morocco — Sahara sunsets, Marrakech streets, Atlas landscapes, coastal escapes, and moments from our private luxury tours.
         </p>
 
-        <div className="mt-10 mx-auto max-w-5xl grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {photos.map((photo, index) => (
+        <div className="mt-10 mx-auto max-w-5xl grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {photos.map((photo) => (
             <div
               key={photo.id}
               className="relative aspect-4/5 overflow-hidden rounded-xl border border-border bg-card shadow-sm "

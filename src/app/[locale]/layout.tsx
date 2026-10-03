@@ -8,6 +8,7 @@ import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import Header from "@/components/Layout/Header";
 import { AlternateSlugsProvider } from "@/contexts/AlternateSlugsContext";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 
 const cormorant = Cormorant_Garamond({
@@ -70,21 +71,25 @@ export default async function LocaleLayout({children,params,}: {children: React.
 
   setRequestLocale(locale);
 
+  const gaId = process.env.NEXT_PUBLIC_GA_ID;
+
+
   return (
     <html
       lang={locale}
       suppressHydrationWarning
       className={`${cormorant.variable} ${manrope.variable} h-full antialiased`}
     >
-       <body className="min-h-screen flex flex-col bg-background text-foreground">
-      <NextIntlClientProvider>
-        <AlternateSlugsProvider>
+      <body className="min-h-screen flex flex-col bg-background text-foreground">
+        <NextIntlClientProvider>
+          <AlternateSlugsProvider>
             <Header />
             <main className="flex-1 w-full">{children}</main>
             <Footer />
-        </AlternateSlugsProvider>
-      </NextIntlClientProvider>
-    </body>
+          </AlternateSlugsProvider>
+        </NextIntlClientProvider>
+      </body>
+      {gaId && <GoogleAnalytics gaId={gaId} />}
     </html>
   );
 }
