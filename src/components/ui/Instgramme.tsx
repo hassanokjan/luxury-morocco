@@ -4,7 +4,7 @@ import React from "react";
 
 import photo1 from "@/../public/personnel/hassan1.jpeg";
 import photo3 from "@/../public/personnel/hassan6.jpeg";
-import photo4 from "@/../public/personnel/hassan5.jpeg";
+import photo4 from "@/../public/personnel/hassan2.jpeg";
 
 
 type Photo = {

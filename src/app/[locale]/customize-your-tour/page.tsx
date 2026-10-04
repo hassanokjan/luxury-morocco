@@ -217,7 +217,7 @@ export default async function CustomTourPage({params,}: {params: Promise<{ local
           <div className="order-1 lg:order-2">
             <div className="relative min-h-[360px] overflow-hidden rounded-xl sm:min-h-[430px] lg:min-h-[560px]">
               <Image
-                src="/personnel/hassan5.jpeg"
+                src="/personnel/hassan3.jpeg"
                 alt="Traditional Moroccan zellige mosaic tilework"
                 fill
                 priority
@@ -236,8 +236,8 @@ export default async function CustomTourPage({params,}: {params: Promise<{ local
             {/* Image */}
             <div className="relative aspect-[4/4] rounded-[4px] overflow-hidden">
               <Image
-                src="/personnel/hassan4.jpeg"
-                alt="Our local Berber guides with happy travelers in the Sahara desert"
+                src="/personnel/hassan1.jpeg"
+                alt="Our local Berber guides in the Moroccan desert"
                 fill
                 className="object-cover object-left"
                 sizes="(max-width: 1024px) 100vw, 50vw"

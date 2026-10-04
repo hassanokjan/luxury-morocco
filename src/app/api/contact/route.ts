@@ -28,11 +28,9 @@ export async function POST(request: Request) {
     const body = (await request.json()) as ContactRequestBody;
 
     // 2. Validate / sanitize input types
-    const fullName =
-      typeof body.fullName === "string" ? body.fullName.trim() : "";
+    const fullName = typeof body.fullName === "string" ? body.fullName.trim() : "";
     const email = typeof body.email === "string" ? body.email.trim() : "";
-    const whatsapp =
-      typeof body.whatsapp === "string" ? body.whatsapp.trim() : "";
+    const whatsapp = typeof body.whatsapp === "string" ? body.whatsapp.trim() : "";
     const message = typeof body.message === "string" ? body.message.trim() : "";
 
     // 3. Required fields
@@ -121,15 +119,9 @@ export async function POST(request: Request) {
     // 9. Send email
     const info = await transporter.sendMail({
       from: `"Website Contact" <${smtpUser}>`,
-
       to: contactEmail,
-
-      // Important:
-      // clicking Reply will reply directly to the customer
       replyTo: email,
-
       subject: `New travel request from ${fullName}`,
-
       text: `New Travel Request
              Name: ${fullName}
              Email: ${email}
@@ -171,11 +163,6 @@ export async function POST(request: Request) {
           </p>
         </div>
       `,
-    });
-
-    console.log("Contact email sent:", {
-      messageId: info.messageId,
-      accepted: info.accepted,
     });
 
     // 10. Success response

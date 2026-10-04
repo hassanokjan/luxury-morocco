@@ -290,7 +290,7 @@ export default async function AboutUs({params,}: {params: Promise<{ locale: stri
           <div className="relative overflow-hidden rounded-[3px]">
             <div className="relative aspect-[4/3]">
               <Image
-                src="/personnel/hassan4.jpeg"
+                src="/personnel/hassan3.jpeg"
                 alt={t("commitment.imageAlt")}
                 fill
                 quality={85}

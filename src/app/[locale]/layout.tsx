@@ -9,6 +9,7 @@ import { setRequestLocale } from "next-intl/server";
 import Header from "@/components/Layout/Header";
 import { AlternateSlugsProvider } from "@/contexts/AlternateSlugsContext";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { Toaster } from "sonner";
 
 
 const cormorant = Cormorant_Garamond({
@@ -86,6 +87,7 @@ export default async function LocaleLayout({children,params,}: {children: React.
             <Header />
             <main className="flex-1 w-full">{children}</main>
             <Footer />
+            <Toaster position="top-right" richColors closeButton />
           </AlternateSlugsProvider>
         </NextIntlClientProvider>
       </body>

@@ -1,8 +1,10 @@
 import React from "react";
-import { ExternalLink} from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { SiTripadvisor } from "react-icons/si";
 
-const tripadvisorLink = "https://www.tripadvisor.com/Attraction_Review-g304018-d33999884-Reviews-Azul_Morocco_Travel-Ouarzazate_Draa_Tafilalet.html";
+import type { Locale } from "@/i18n/routing";
+
+const tripadvisorLink ="https://www.tripadvisor.com/Attraction_Review-g304018-d33999884-Reviews-Azul_Morocco_Travel-Ouarzazate_Draa_Tafilalet.html";
 
 const reviews = [
   {
@@ -12,43 +14,53 @@ const reviews = [
   },
   {
     name: "Boiana S",
-    comment: "I had an amazing experience with this travel agency on my trip to Morocco! Everything was perfectly organized, from the accommodations to the guided tours. The team was friendly, professional, and always available to help, which made the whole journey stress-free. Morocco itself was beautiful, and thanks to their planning, I got to experience so much of the culture and scenery. I’d definitely recommend them to anyone looking for a memorable and well-organized trip!.",
+    comment:
+      "I had an amazing experience with this travel agency on my trip to Morocco! Everything was perfectly organized, from the accommodations to the guided tours. The team was friendly, professional, and always available to help, which made the whole journey stress-free. Morocco itself was beautiful, and thanks to their planning, I got to experience so much of the culture and scenery. I’d definitely recommend them to anyone looking for a memorable and well-organized trip!",
   },
   {
     name: "Getaway",
     comment:
-      "We had an incredible experience on our tour, thanks entirely to our guide Hassan. He was a fantastic driver, extremely knowledgeable about the area, and super friendly throughout the trip. His excellent English made communication effortless, and he shared fascinating insights that truly enriched our experience. The trip would not have been the same without him — we couldn’t recommend him more highly!.",
+      "We had an incredible experience on our tour, thanks entirely to our guide Hassan. He was a fantastic driver, extremely knowledgeable about the area, and super friendly throughout the trip. His excellent English made communication effortless, and he shared fascinating insights that truly enriched our experience. The trip would not have been the same without him — we couldn’t recommend him more highly!",
   },
 ];
 
-const contenu={
-    "en":{
-        subtitle:"Guest Reviews",
-        title:"What Our Travelers Say",
-        button:"View on Tripadvisor"
-    },
-    "es":{
-        subtitle:"Reseñas de huéspedes",
-        title:"Lo que dicen nuestros viajeros",
-        button:"Ver en Tripadvisor"
-    }
-}
+const content = {
+  en: {
+    subtitle: "Guest Reviews",
+    title: "What Our Travelers Say",
+    button: "View on Tripadvisor",
+    reviewLabel: "View review on Tripadvisor",
+  },
 
-export default function Tripadvisor({locale}: {locale: string}): React.JSX.Element {
+  es: {
+    subtitle: "Reseñas de huéspedes",
+    title: "Lo que dicen nuestros viajeros",
+    button: "Ver en Tripadvisor",
+    reviewLabel: "Ver reseña en Tripadvisor",
+  },
+} as const;
 
-    const t = contenu[locale as keyof typeof contenu];
+type Props = {
+  locale?: Locale;
+};
+
+export default function Tripadvisor({locale = "en",}: Props): React.JSX.Element {
+  const safeLocale: Locale = locale === "es" ? "es" : "en";
+
+  const t = content[safeLocale];
+
   return (
     <section className="bg-background py-4">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Heading */}
-        <div className="mb-8 px-4 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+        <div className="mb-8 flex flex-col gap-4 px-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary">
-              {t?.subtitle}
+              {t.subtitle}
             </span>
 
             <h2 className="mt-2 text-3xl font-semibold text-heading sm:text-4xl">
-              {t?.title}
+              {t.title}
             </h2>
           </div>
 
@@ -58,33 +70,35 @@ export default function Tripadvisor({locale}: {locale: string}): React.JSX.Eleme
             rel="noopener noreferrer"
             className="hidden items-center justify-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-bold text-primary-foreground transition hover:bg-primary-hover sm:flex"
           >
-            {t?.button}
-            <ExternalLink className="h-4 w-4" />
+            {t.button}
+
+            <ExternalLink className="h-4 w-4" aria-hidden="true" />
           </a>
         </div>
 
-        {/* Horizontal reviews */}
+        {/* Reviews */}
         <div className="scrollbar-none flex snap-x snap-mandatory gap-4 overflow-x-auto pb-3 sm:gap-5">
           {reviews.map((review) => (
             <article
               key={review.name}
               className="
-                    flex min-w-[85%] flex-col
-                    snap-start
-                    rounded-xl
-                    border border-border
-                    bg-card
-                    p-5
-                    sm:min-w-[55%]
-                    sm:p-6
-                    lg:min-w-0
-                    lg:flex-1
-                    cursor-pointer
+                flex min-w-[85%] cursor-pointer flex-col
+                snap-start
+                rounded-xl
+                border border-border
+                bg-card
+                p-5
+                sm:min-w-[55%]
+                sm:p-6
+                lg:min-w-0
+                lg:flex-1
               "
             >
               {/* Stars */}
               <div className="mb-4 flex items-center gap-1">
-                {Array.from({ length: 5 }).map((_, index) => (
+                {Array.from({
+                  length: 5,
+                }).map((_, index) => (
                   <span
                     key={index}
                     className="h-4 w-4 rounded-full bg-primary"
@@ -93,40 +107,41 @@ export default function Tripadvisor({locale}: {locale: string}): React.JSX.Eleme
                 ))}
               </div>
 
-              <p className="text-sm line-clamp-6  leading-7 text-text-secondary sm:text-base">
+              <p className="line-clamp-6 text-sm leading-7 text-text-secondary sm:text-base">
                 “{review.comment}”
               </p>
 
               <div className="mt-auto flex items-end justify-between gap-4 pt-6">
-                {/* Traveler */}
                 <div>
                   <p className="font-semibold text-heading">{review.name}</p>
 
                   <p className="mt-1 text-xs font-medium text-text-muted">
-                    {t?.button}
+                    {t.button}
                   </p>
                 </div>
 
-                {/* Tripadvisor */}
                 <a
                   href={tripadvisorLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="View review on Tripadvisor"
+                  aria-label={t.reviewLabel}
                   className="flex shrink-0 items-center gap-2 text-sm font-semibold"
                 >
                   <SiTripadvisor
                     className="h-6 w-6 text-primary"
                     aria-hidden="true"
                   />
-                  <span className="hidden text-primary sm:inline">Tripadvisor</span>
+
+                  <span className="hidden text-primary sm:inline">
+                    Tripadvisor
+                  </span>
                 </a>
               </div>
             </article>
           ))}
         </div>
 
-        {/* Mobile Tripadvisor button */}
+        {/* Mobile button */}
         <div className="mt-6 sm:hidden">
           <a
             href={tripadvisorLink}
@@ -135,7 +150,8 @@ export default function Tripadvisor({locale}: {locale: string}): React.JSX.Eleme
             className="flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-bold text-primary-foreground transition hover:bg-primary-hover"
           >
             {t.button}
-            <ExternalLink className="h-4 w-4" />
+
+            <ExternalLink className="h-4 w-4" aria-hidden="true" />
           </a>
         </div>
       </div>

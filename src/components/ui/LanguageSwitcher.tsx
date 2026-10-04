@@ -36,7 +36,7 @@ function FlagIcon({ country, alt }: { country: string; alt: string }) {
       alt={alt}
       width={32}
       height={24}
-      className="h-auto w-6 rounded-[2px] object-cover shadow-sm lg:w-8"
+      className="h-6 w-8 rounded-[2px] object-cover shadow-sm"
       unoptimized
     />
   );
