@@ -490,8 +490,7 @@ function MobileDropdown({
         onClick={() => setIsExpanded((prev) => !prev)}
         aria-expanded={isExpanded}
         className={`
-          flex w-full
-          items-center justify-between
+          flex w-full items-center justify-between
           rounded-xl
           px-4 py-3
           text-sm font-semibold
