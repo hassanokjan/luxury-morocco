@@ -18,7 +18,6 @@ export default function Blogcart({ card, locale }: BlogcartProps) {
           pathname: "/blog/[slug]",
           params: { slug: card.slug },
         }}
-        locale={locale}
         className="group grid items-center gap-6 rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-primary md:grid-cols-2 md:gap-8 lg:gap-10"
       >
         {/* IMAGE */}

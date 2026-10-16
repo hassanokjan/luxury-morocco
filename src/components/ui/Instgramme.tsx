@@ -40,7 +40,7 @@ export default async function InstagramSection(): Promise<React.JSX.Element> {
           Follow Our Journey
         </h2>
 
-        <p className="mx-auto mt-4 max-w-6xl text-base leading-7 text-text-secondary sm:text-lg sm:leading-8">
+        <p className="mx-auto mt-4 max-w-5xl text-base leading-7 text-text-secondary sm:text-lg sm:leading-8">
           Follow Luxury Morocco Destinations for a closer look at Morocco — Sahara sunsets, Marrakech streets, Atlas landscapes, coastal escapes, and moments from our private luxury tours.
         </p>
 

@@ -182,10 +182,14 @@ function HeaderContent({ pathname }: { pathname: string }): React.JSX.Element {
               <LanguageSwitcher />
             </div>
 
-            <MobileMenuButton
-              isOpen={isOpen}
-              onToggle={() => setIsOpen((current) => !current)}
-            />
+            {/* Mobile actions */}
+            <div className="flex items-center gap-2 lg:hidden">
+              <LanguageSwitcher />
+              <MobileMenuButton
+                isOpen={isOpen}
+                onToggle={() => setIsOpen((current) => !current)}
+              />
+            </div>
           </div>
         </div>
 
@@ -458,10 +462,6 @@ function MobileNav({
 
             <span className="font-medium">{CONTACT.email}</span>
           </a>
-        </div>
-
-        <div className="sticky top-0 z-20 border-b border-border bg-background/95 px-4 py-3 backdrop-blur-md">
-          <LanguageSwitcher />
         </div>
       </div>
     </nav>

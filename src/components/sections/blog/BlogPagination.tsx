@@ -57,7 +57,7 @@ export function BlogPagination({
       </Link>
 
       <div className="flex items-center gap-1.5">
-        {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+        {Array.from({ length: totalPages }, (_, i) => i + 1).splice(0, 5).map((page) => (
           <Link
             key={page}
             href={pageHref(page)}
