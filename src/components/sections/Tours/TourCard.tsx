@@ -47,7 +47,6 @@ export function TourCard({
             slug: card.slug,
           },
         }}
-        locale={locale}
         className="
           flex h-full flex-col
           focus-visible:outline-2

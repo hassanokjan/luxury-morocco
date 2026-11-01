@@ -52,7 +52,6 @@ export default async function HomeBlogSection({locale,}: HomeBlogSectionProps): 
 
             <Link
               href="/blog"
-              locale={locale}
               className="group mt-2 inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-primary-hover"
             >
               <span>{texts.viewAll}</span>
@@ -90,13 +89,7 @@ export default async function HomeBlogSection({locale,}: HomeBlogSectionProps): 
                   slug: card.slug,
                 },
               }}
-              locale={locale}
-              className="
-                group block h-full min-w-[90%] snap-start
-
-                sm:min-w-0
-              "
-            >
+              className="group block h-full min-w-[90%] snap-start sm:min-w-0">
               <article
                 className=" flex h-full flex-col rounded-xl border border-border/70 bg-card p-3 shadow-sm sm:rounded-none sm:border-0 sm:bg-transparent sm:p-0 sm:shadow-none">
                 {/* IMAGE */}

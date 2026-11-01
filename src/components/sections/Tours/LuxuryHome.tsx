@@ -56,7 +56,6 @@ export default async function LuxuryHome({ locale }: LuxuryHomeProps) {
 
           <Link
             href="/tours"
-            locale={locale}
             className="
     group inline-flex w-fit items-center gap-2
     rounded-full

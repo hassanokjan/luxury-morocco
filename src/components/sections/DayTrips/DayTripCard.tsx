@@ -38,7 +38,6 @@ export default function DayTripCard({ trip, locale }: Props) {
       {/* IMAGE */}
       <Link
         href={href}
-        locale={locale}
         className="relative block aspect-[4/3] overflow-hidden bg-muted"
       >
         <Image
@@ -64,7 +63,7 @@ export default function DayTripCard({ trip, locale }: Props) {
       {/* CONTENT */}
       <div className="p-5">
         <h3 className="text-[20px] font-semibold leading-[1.25] tracking-[-0.02em] text-foreground transition-colors duration-300 group-hover:text-primary">
-          <Link href={href} locale={locale}>
+          <Link href={href}>
             {trip.title}
           </Link>
         </h3>

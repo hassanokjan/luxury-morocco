@@ -53,11 +53,6 @@ export default function FaqItem({question,answer,isOpen,onClick,}: FaqItemProps)
           </div>
         </div>
       </div>
-
-      {/* SEO FALLBACK */}
-      <noscript>
-        <div className="px-6 py-0 text-sm text-text-secondary">{answer}</div>
-      </noscript>
     </div>
   );
 }

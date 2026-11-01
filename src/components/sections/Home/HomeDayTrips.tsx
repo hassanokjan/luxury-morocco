@@ -63,7 +63,6 @@ export default async function HomeDayTrips({ locale }: Props) {
           {/* DESKTOP BUTTON */}
           <Link
             href="/day-trips"
-            locale={locale}
             className="
     group hidden
     items-center gap-2
