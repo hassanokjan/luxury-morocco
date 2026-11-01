@@ -117,16 +117,20 @@ export async function POST(request: Request) {
     const safeMessage = escapeHtml(message).replace(/\n/g, "<br />");
 
     // 9. Send email
-    const info = await transporter.sendMail({
+    await transporter.sendMail({
       from: `"Website Contact" <${smtpUser}>`,
       to: contactEmail,
       replyTo: email,
       subject: `New travel request from ${fullName}`,
+
       text: `New Travel Request
-             Name: ${fullName}
-             Email: ${email}
-             WhatsApp: ${whatsapp || "Not provided"}
-             Message:${message}`.trim(),
+
+Name: ${fullName}
+Email: ${email}
+WhatsApp: ${whatsapp || "Not provided"}
+
+Message:
+${message}`,
 
       html: `
         <div
@@ -158,9 +162,7 @@ export async function POST(request: Request) {
             <strong>Message:</strong>
           </p>
 
-          <p>
-            ${safeMessage}
-          </p>
+          <p>${safeMessage}</p>
         </div>
       `,
     });

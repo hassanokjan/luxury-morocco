@@ -1,4 +1,3 @@
-import { MapPin } from "lucide-react";
 
 const MAP_EMBED_URL = "https://www.google.com/maps?q=Casablanca,Morocco&output=embed";
 
