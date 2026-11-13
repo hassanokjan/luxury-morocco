@@ -3,7 +3,7 @@ import type { Locale } from "@/i18n/routing";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL?.replace(/\/+$/, "");
 
-const REVALIDATE = 2000;
+const REVALIDATE = 84600;
 
 const LANGUAGE_IDS: Record<Locale, number> = {
   en: 14,

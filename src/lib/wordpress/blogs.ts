@@ -84,7 +84,7 @@ async function fetchPosts<T>(locale: Locale,params: Record<string, string>,): Pr
   try {
     
     const response = await fetch(`${API_URL}/posts?${query}`, {
-      next: { revalidate: 8600 },
+      next: { revalidate:24000 },
     });
 
       if (!response.ok) {
@@ -107,6 +107,7 @@ async function fetchPosts<T>(locale: Locale,params: Record<string, string>,): Pr
     return null;
   }
 }
+
 
 /* CONVERSION POUR LE FRONTEND */
 

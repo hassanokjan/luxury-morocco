@@ -253,9 +253,7 @@ export default async function Footer() {
 
             <div className="mt-4 space-y-3">
               {/* PAYMENT */}
-              <div
-                className="rounded-2xl border border-footer-border bg-white/[0.02] p-4"
-              >
+              <div className="rounded-2xl border border-footer-border bg-white/[0.02] p-4">
                 <p className="text-xs font-medium text-footer-muted">
                   Secure payment
                 </p>
@@ -265,13 +263,13 @@ export default async function Footer() {
                   alt="Visa Mastercard PayPal accepted"
                   width={150}
                   height={45}
-                 className="mt-3 h-9 w-auto object-contain opacity-80"
+                  className="mt-3 h-9 w-auto object-contain opacity-80"
                 />
               </div>
 
               {/* TRIPADVISOR */}
               <a
-                href="https://www.tripadvisor.com/Attraction_Review-g304018-d33999884-Reviews-Azul_Morocco_Travel-Ouarzazate_Draa_Tafilalet.html"
+                href="https://www.tripadvisor.com/Attraction_Review-g304018-d33999884-Reviews-Luxury_Morocco_Destinations-Ouarzazate_Draa_Tafilalet.html"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-center gap-4 rounded-xl border border-footer-border bg-white/[0.02] p-4 transition-all duration-300 hover:border-primary/40 hover:bg-white/[0.04] "

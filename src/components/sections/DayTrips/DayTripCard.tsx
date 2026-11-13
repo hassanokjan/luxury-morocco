@@ -81,7 +81,6 @@ export default function DayTripCard({ trip, locale }: Props) {
 
           <Link
             href={href}
-            locale={locale}
             className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition-all duration-300 hover:gap-3"
             aria-label={`${content.button}: ${trip.title}`}
           >

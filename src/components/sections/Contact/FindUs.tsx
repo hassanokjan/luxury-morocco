@@ -1,9 +1,9 @@
 
-const MAP_EMBED_URL = "https://www.google.com/maps?q=Casablanca,Morocco&output=embed";
+const MAP_EMBED_URL = "https://www.google.com/maps?q=agences+de+voyages+Maarif+Casablanca+Morocco&output=embed";
 
 export default function FindUs(): React.JSX.Element {
   return (
-    <section className="bg-surface-soft pt-12">
+    <section className="pt-12">
         {/* Map */}
         <div className="overflow-hidden bg-card sm:mt-12">
           <div className="h-[340px] w-full sm:h-[430px] lg:h-[420px]">

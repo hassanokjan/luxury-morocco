@@ -1,8 +1,6 @@
 import Image from "next/image";
 import { ArrowUpRight, MapPin } from "lucide-react";
-
 import { getAllDayTripCards } from "@/lib/wordpress/day-trips";
-
 import { Link, type Locale } from "@/i18n/routing";
 import Tripadvisor from "@/components/ui/Tripadvisor";
 import InstagramSection from "@/components/ui/Instgramme";
@@ -36,6 +34,8 @@ const CONTENT = {
     empty: "Todavía no hay excursiones disponibles.",
   },
 } as const;
+
+
 
 export default async function DayTripsPage({ params }: PageProps) {
   const { locale } = await params;
