@@ -70,6 +70,7 @@ interface WordPressResult<T> {
 /* REQUÊTE COMMUNE */
 
 async function fetchPosts<T>(locale: Locale,params: Record<string, string>,): Promise<WordPressResult<T> | null> {
+
   if (!API_URL || !LANGUAGE_CATEGORIES[locale]) {
     console.error("Blogs: URL API ou langue invalide.");
     return null;
@@ -87,15 +88,23 @@ async function fetchPosts<T>(locale: Locale,params: Record<string, string>,): Pr
       next: { revalidate:24000 },
     });
 
-      if (!response.ok) {
-        if (response.status >= 500) {
-          throw new Error(`WordPress blogs error: ${response.status}`);
-        }
+    
+    if (!response.ok) {
+      console.error("WordPress API error:", {
+        status: response.status,
+        locale,
+        endpoint: "/posts",
+        params: query.toString(),
+      });
 
-        return null;
+      if (response.status >= 500) {
+        throw new Error(`WordPress blogs error: ${response.status}`);
       }
 
-    const posts: T[] = await response.json();
+      return null;
+    }
+
+  const posts: T[] = await response.json();
 
     return {
       posts,
