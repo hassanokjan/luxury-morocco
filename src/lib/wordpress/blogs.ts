@@ -69,11 +69,13 @@ interface WordPressResult<T> {
 
 /* REQUÊTE COMMUNE */
 
-async function fetchPosts<T>(locale: Locale,params: Record<string, string>,): Promise<WordPressResult<T> | null> {
 
+async function fetchPosts<T>(
+  locale: Locale,
+  params: Record<string, string>,
+): Promise<WordPressResult<T> | null> {
   if (!API_URL || !LANGUAGE_CATEGORIES[locale]) {
-    console.error("Blogs: URL API ou langue invalide.");
-    return null;
+    throw new Error("Blogs: URL API ou langue invalide.");
   }
 
   const query = new URLSearchParams({
@@ -83,12 +85,10 @@ async function fetchPosts<T>(locale: Locale,params: Record<string, string>,): Pr
   });
 
   try {
-    
     const response = await fetch(`${API_URL}/posts?${query}`, {
-      next: { revalidate:24000 },
+      next: { revalidate: 24000 },
     });
 
-    
     if (!response.ok) {
       console.error("WordPress API error:", {
         status: response.status,
@@ -97,14 +97,10 @@ async function fetchPosts<T>(locale: Locale,params: Record<string, string>,): Pr
         params: query.toString(),
       });
 
-      if (response.status >= 500) {
-        throw new Error(`WordPress blogs error: ${response.status}`);
-      }
-
-      return null;
+      throw new Error(`WordPress blogs error: ${response.status}`);
     }
 
-  const posts: T[] = await response.json();
+    const posts: T[] = await response.json();
 
     return {
       posts,
@@ -113,9 +109,10 @@ async function fetchPosts<T>(locale: Locale,params: Record<string, string>,): Pr
     };
   } catch (error) {
     console.error("WordPress blogs:", error);
-    return null;
+    throw error;
   }
 }
+
 
 
 /* CONVERSION POUR LE FRONTEND */
